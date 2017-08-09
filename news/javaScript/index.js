@@ -19,11 +19,11 @@ window.onload=function () {
     function animat(offset) {
         let newLeft=parseInt(list.style.left)+offset;
         list.style.left=newLeft+'px';
-        if(newLeft>-950){
-            list.style.left=-4750+'px';
+        if(newLeft>-1280){
+            list.style.left=-6400+'px';
         }
-        if(newLeft<-4750){
-            list.style.left=-950+'px';
+        if(newLeft<-6400){
+            list.style.left=-1280+'px';
         }
     }
     next.onclick=function () {
@@ -34,7 +34,7 @@ window.onload=function () {
             index+=1;
         }
         showButtons();
-        animat(-950);
+        animat(-1280);
     };
     prev.onclick=function () {
         if(index===1){
@@ -44,6 +44,6 @@ window.onload=function () {
             index-=1;
         }
         showButtons();
-       animat(+950);
+       animat(+1280);
     }
 };
