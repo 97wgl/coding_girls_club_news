@@ -1,0 +1,30 @@
+{
+  "name": "codingirlsclub-news",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/97wgl/coding_girls_club_news.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/97wgl/coding_girls_club_news/issues"
+  },
+  "homepage": "https://github.com/97wgl/coding_girls_club_news#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "nodemailer": "^4.0.1",
+    "redis": "^2.8.0",
+    "sqlite3": "^3.1.9"
+  },
+  "devDependencies": {
+    "cookie-parser": "^1.4.3",
+    "express-session": "^1.15.5"
+  }
+}
