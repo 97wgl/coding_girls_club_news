@@ -140,7 +140,22 @@ app.listen(3000, () => {
     console.log('running on port 3000...');
 });
 
+//根据id获取详细新闻
 
+//获取detail页面
+app.get('/detail',function (req,res) {
+
+    const sqlStr = `select * from News where id = ${req.query.newsid}`;
+
+    db.all(sqlStr, function (err, result) {
+        if(err){
+            console.log("读取数据失败！");
+        } else {
+            console.log("新闻为:"+result);
+            res.send(result);
+        }
+    })
+});
 
 
 

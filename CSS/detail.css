@@ -5,6 +5,7 @@
     box-shadow:0 0 10px rgba(0,0,0,0.5) ;
     border-radius: 5px;
     padding-bottom: 50px;
+    position: relative;
 }
 .top{
     width:100%;
@@ -16,17 +17,17 @@
     background-color: #209b60;
 }
 #home_icon{
-    position: fixed;
-    right: 131px;
-    top: 96px;
+    position: absolute;
+    right: -20px;
+    top: -23px;
     font-size: 40px;
-    z-index: 2;
+    z-index: 1;
 }
 #paper_title{
     padding: 10px;
 }
 #paper_author{
-    margin-left: 10px;
+    margin-left: 77px;
 }
 #paper_author p{
   font-size: 15px;
@@ -61,6 +62,9 @@
     border: none;
     background-color: rgba(35, 35, 35, 0.25);
     margin-bottom: 46px;
+}
+#paper_author p{
+    margin-left: 30px;
 }
 
 /**************************分享按钮*****************************/
