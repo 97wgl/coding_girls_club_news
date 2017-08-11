@@ -1,5 +1,6 @@
 $("#forgetPass").click(function () {
     replaceForm();
+    history.pushState(null,null,'forget_pwd');
 });
 // $("#reset_pw_btn").click(function () {
 //     confirmPw();
@@ -31,10 +32,14 @@ document.addEventListener("DOMContentLoaded",function () {
 function confirmPw() {
     let user_pw = document.getElementById('user_pw').value;
     let user_cfm_pw = document.getElementById('user_cfm_pw').value;
-    if(user_pw !== user_cfm_pw){
+    if(user_pw.length < 7){
+        alert('Your password is too short, please change a safety one.');
+        $('#user_pw').val('');
+        $('#user_cfm_pw').val('');
+    }else if(user_pw !== user_cfm_pw){
         alert(`The password did not match the re-typed password.`);
-        document.getElementById('user_pw').value = '';
-        document.getElementById('user_cfm_pw').value = '';
+        $('#user_pw').val('');
+        $('#user_cfm_pw').val('');
     }
 }
 
