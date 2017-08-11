@@ -63,11 +63,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <div class="login-register-form">
+            <div class="login-register-form" id="login-form">
                 <form action="" accept-charset="UTF-8" method="post">
 
                     <div class="form-group">
-                        <input type="text" name="user_email" id="user_email" class="form-control" placeholder="Email" />
+                        <input type="email" name="user_email" id="user_email" class="form-control" placeholder="Email" />
                         <span class="input-icon"><i class=" fa fa-envelope"></i></span>
                     </div>
                     <div class="form-group">
@@ -75,17 +75,17 @@
                         <span class="input-icon"><i class="fa fa-lock"></i></span>
                     </div>
                     <div class="form-group checkbox">
-                        <label class="a-color" style="float: left">
-                            <input type="checkbox" id="ck_rmbUser"> Remember me
+                        <label class="a-color float-left ck-rm-hover">
+                            <input type="checkbox" name="ck_rmUser"> Remember me
                         </label>
                     </div>
-                    <div class="form-group text-right" style="float: right;">
-                        <a href="#" class="a-color">Forget Password?</a>
+                    <div class="form-group text-right float-right">
+                        <a href="#" class="a-color" id="forgetPass">Forget Password?</a>
                     </div>
-                    <input type="submit" name="commit" value="Login" class="btn btn-lg btn-block btn-skin" data-disable-with="Login" onclick="setCookie()"/>
-
+                    <div class="input-hover">
+                    <input type="submit" name="commit" value="Login" class="btn btn-lg btn-block btn-skin" onclick="setCookie()"/>
+                    </div>
                 </form>
-
                 <!--<a href="#" class="btn btn-lg btn-link btn-block a-color">Create Account!</a>-->
             </div>
         </div>
@@ -135,5 +135,8 @@
     </div>
 </footer>
 <!--footer end-->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="../JS/login.js"></script>
 </body>
 </html>
