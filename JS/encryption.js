@@ -3,10 +3,10 @@
  */
 function Encryption() {
 
-    // private property
+    // 密钥
     _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 
-    // public method for encoding
+    // 加密
     this.encode = function (input) {
         let output = "";
         let chr1, chr2, chr3, enc1, enc2, enc3, enc4;
@@ -32,7 +32,7 @@ function Encryption() {
         return output;
     }
 
-    // public method for decoding
+    // 解密
     this.decode = function (input) {
         let output = "";
         let chr1, chr2, chr3;
@@ -59,7 +59,7 @@ function Encryption() {
         return output;
     }
 
-    // private method for UTF-8 encoding
+    // 转码
     _utf8_encode = function (string) {
         string = string.replace(/\r\n/g,"\n");
         let utftext = "";
@@ -80,7 +80,7 @@ function Encryption() {
         return utftext;
     }
 
-    // private method for UTF-8 decoding
+    // 转码
     _utf8_decode = function (utftext) {
         let string = "";
         let i = 0;
