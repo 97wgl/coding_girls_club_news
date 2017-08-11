@@ -132,14 +132,14 @@ h1,h2,h3,h4,h5,h6 {
 	background-color: #209b60;
 	font-size: .875em;
 	height: 55px;
-	line-height: 53px;
+	line-height: 55px;
 }
 .contact-list li {
 	padding-right: 25px;
 }
 .contact-list a {
 	color: #ffffff;
-}
+} /*顶部News，Blog，Sign in 字体样式*/
 .top-icon {
 	background-color: #ffffff;
 	border-radius: 50%;
@@ -150,7 +150,7 @@ h1,h2,h3,h4,h5,h6 {
 	line-height: 30px;
 	margin-right: 10px;
 	text-align: center;
-}
+} /*顶部News,blog的logo样式*/
 .top-social {
 	text-align: right;
 }
@@ -160,10 +160,10 @@ h1,h2,h3,h4,h5,h6 {
 .site-banner {
 	background-color: #ffffff;
 	height: 120px;
-}
+}  /*顶端CodingGrilsClub图标板块样式*/
 .site-logo {
 	padding-top: 35px;
-}
+}   /*顶端CodingGrilsClub图标样式*/
 
 /* Main Menu Section */
 
@@ -344,25 +344,25 @@ h1,h2,h3,h4,h5,h6 {
 }
 .portfolio-title:after {
 	right: 0px;
-}
+} /*Latest News标题样式*/
 .portfolio-area .title-description {
 	color: #209b60;
 	font-size: .875em;
 	padding-top: 5px;
-}
+} /*Latest News标题描述样式*/
 .portfolio-slider {
 	padding-top: 25px;
-}
+}/* Latest News滑页部分样式*/
 .portfolio-slider .item {
 	border-bottom: 2px solid #209b60;
 	display: inline-block;
-}
+}/* Latest News滑页部分图片样式*/
 .portfolio-slider .item-title {
 	color: #869093;
 	display: inline-block;
 	font-size: .875em;
 	padding: 5px 0px;
-}
+}/* Latest News滑页部分图片下标题样式*/
 .slide-nav {
 	background-color: #209b60;
 	border: 1px solid transparent;
@@ -388,7 +388,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 .slide-right {
 	right: 0px;
-}
+} /*翻页箭头标签样式*/
 
 /* Services Section */
 .services {
@@ -416,8 +416,16 @@ h1,h2,h3,h4,h5,h6 {
 .service-items .item-1 {
 	border-bottom:  1px solid #d7dee0;
 }
+.service-items .item-1 strong{
+	color: #209b60;
+	font-size: 20px;
+}
 .service-items .item-2 {
 	padding-top: 40px;
+}
+.service-items .item-2 strong{
+	color: #209b60;
+	font-size: 20px;
 }
 .service-items .btn {
 	background-color: #209b60;
@@ -477,7 +485,7 @@ h1,h2,h3,h4,h5,h6 {
 	font-size: .875em;
 }
 /*page*/
-.page{
+/*.page{
 	font-size: 18px;
 	color: #209b60;
 	margin: 0 auto;
@@ -503,7 +511,7 @@ h1,h2,h3,h4,h5,h6 {
 .page a:hover{
 	background-color: #209b60;
 	color: white;
-}
+}*/
 /* Latest post Section */
 .post-area {
 	padding-top: 60px;
@@ -1051,6 +1059,7 @@ footer {
 	background-color: black;
 	color: #ffffff;
 	font-size: .875em;
+	text-align: center;
 }
 footer p,
 footer a {
@@ -1108,5 +1117,3 @@ footer a {
 	border-right: 1px solid #ffffff;
 	right: 0px;
 }
-
-
