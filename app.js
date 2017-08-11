@@ -151,6 +151,23 @@ app.get('/all_blogs_count', function (req, res) {
 
 });
 
+//邮箱验证
+app.get('/comfirm_email',function (req, res) {
+
+    const input_email = req.query.checkEmail;
+    const sql_str = "select * from manager where manager_email = '"+input_email+"'";
+
+    db.all(sql_str, function (err ,result) {
+       if(result.length === 0){
+           console.log(result);
+           res.send(true);
+       } else {
+           console.log(err);
+           res.send(false);
+       }
+    });
+});
+
 //更改密码
 app.put('/modify_password', function (req, res) {
 

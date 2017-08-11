@@ -24,6 +24,7 @@ function resetPwdEmail(sendEmail) {
     http://www.codingirls.club/login</a></h3>`
     };
 
+
     transporter.sendMail(mailOptions, function (err, info) {
         if (err) {
             console.log(err);
@@ -37,4 +38,4 @@ function resetPwdEmail(sendEmail) {
 }
 
 //测试
-resetPwdEmail('1475693887@qq.com');
+// resetPwdEmail('1475693887@qq.com');

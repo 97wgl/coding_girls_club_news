@@ -15,7 +15,7 @@ function replaceForm() {
             </div>
             <br/>
             <div class="input-hover">
-                <input type="submit" name="commit_forget_pass" value="Send mail to reset your password" class="btn btn-lg btn-block btn-skin"/>
+                <input type="submit" id="commit_forget_pass" name="commit_forget_pass" value="Send mail to reset your password" class="btn btn-lg btn-block btn-skin"/>
             </div>
         </form>`;
     forgetForm.innerHTML = newForgetForm;
