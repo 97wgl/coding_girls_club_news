@@ -7,3 +7,7 @@ $(document).ready(function(){
         $('#top-news-firstText').find('span').html(headlineNews[0].news_title);
     });
 });
+
+$().ready(()=>{
+
+});
