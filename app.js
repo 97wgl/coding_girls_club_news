@@ -107,11 +107,27 @@ app.post("/login", function (req, res) {
     });
 });
 
-//分页展示信息
+//后台分页展示信息
 app.get("/all_news", function (req, res) {
 
     const req_page = req.query.page;
     const sql_str = "select * from news order by news_time desc limit ('"+req_page+"'-1)*8,8";
+    //根据前台传过来的page,从数据库动态查询相应信息
+    db.all(sql_str, function (err, result) {
+        if (err) {
+            console.log("读取数据失败！" + err);
+        } else {
+            console.log(result);
+            res.send(result);
+        }
+    });
+});
+
+//前台分页展示新闻信息
+app.get("/all_news", function (req, res) {
+
+    const req_page = req.query.page;
+    const sql_str = "select * from news order by news_time desc limit ('"+req_page+"'-1)*4,4";
     //根据前台传过来的page,从数据库动态查询相应信息
     db.all(sql_str, function (err, result) {
         if (err) {
@@ -304,13 +320,28 @@ app.put('/edit_news/:id',function (req, res) {
     });
 });
 
+//删除新闻或博客
 app.delete('/delete' ,function (req,res) {
 
     const deleteId = req.params.delId;
     const deleteType = req.params.delType;
 
     if(deleteType === "news"){
-        db.run("delete from ")
+        db.run("delete from  news where id = '"+deleteId+"'",function (err) {
+           if(!err){
+               res.send(true);
+           } else {
+               res.send(false);
+           }
+        });
+    } else {
+        db.run("delete from blogs where id = '"+deleteId+"'",function (err) {
+            if(!err){
+                res.send(true);
+            } else {
+                res.send(false);
+            }
+        })
     }
 });
 
