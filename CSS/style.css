@@ -1221,7 +1221,12 @@ footer a {
 	font-size: 30px;
 }
 .top .top-news .top-news-content p{
-	text-align: center;
+	text-align: left;
+	overflow : hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
 }
 
 
