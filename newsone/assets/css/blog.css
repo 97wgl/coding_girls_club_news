@@ -1,0 +1,16 @@
+.service-top{
+    height: 60px;
+    background-color: #209b60;
+    text-align: center;
+}
+.service-top span{
+    color: white;
+    height: 60px;
+    line-height:60px;
+    font-size:24px;
+}
+.main-news img{
+    float:left;
+    height: 123px;
+    margin-top: 6px;
+}
