@@ -8,6 +8,7 @@ function resetPwdEmail(sendEmail) {
     let encrypty = new encryptionModule.Encryption();
     let transporter = nodemailer.createTransport({
         service: 'qq',
+        secureConnection: true,
         auth: {
             user: '1060756423@qq.com',
             pass: encrypty.decode('b2ZlbGRpcnFtZ2J2YmViZQ==')
