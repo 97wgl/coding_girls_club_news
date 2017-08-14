@@ -1218,10 +1218,15 @@ footer a {
 }
 .top .top-news .top-news-content span{
 	color: #209b60;
-	font-size: 30px;
+	font-size: 24px;
 }
 .top .top-news .top-news-content p{
-	text-align: center;
+	text-align: left;
+	overflow : hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
 }
 
 

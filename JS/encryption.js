@@ -104,4 +104,3 @@ function Encryption() {
         return string;
     }
 }
-module.exports.Encryption = Encryption;
