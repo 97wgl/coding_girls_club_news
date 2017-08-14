@@ -16,6 +16,11 @@ app.all('*', function (req, res, next) {
     next();
 });
 
+//读取index.html文件
+app.get('/index', function (req, res) {
+    res.sendFile(__dirname + '/HTML/' + 'index.html');
+});
+
 //读取login.html文件
 app.get('/login', function (req, res) {
     res.sendFile(__dirname + '/HTML/' + 'login.html');
@@ -52,7 +57,7 @@ app.post('/test', function (req, res) {
 //首页头条新闻
 app.get("/news_list", function (req, res) {
 
-    const sql_str = "select * from news where isHeadline='1' and strftime('%m-%d','now','localtime') = strftime('%m-%d',news_time)";
+    const sql_str = "select * from news where isHeadline='1' order by news_time desc limit 0,3";
     //查询当日的头条新闻
     db.all(sql_str, function (err, result) {
         if (err) {
