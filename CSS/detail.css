@@ -1,7 +1,7 @@
 #paper{
     margin: 120px auto;
     height: auto;
-    width: 1050px;
+    width: 80%;
     box-shadow:0 0 10px rgba(0,0,0,0.5) ;
     border-radius: 5px;
     padding-bottom: 50px;
@@ -39,6 +39,7 @@
 #paper_share{
     width: auto;
     height: 100%;
+    position: relative;
 }
 #paper_imageandtext{
     height: 100%;
@@ -67,7 +68,31 @@
     margin-left: 30px;
 }
 
+#chevron_left{
+    display: inline-block;
+    position: absolute;
+    left: 4%;
+    font-size: 40px;
+    top: 10%;
+}
+#chevron_right{
+    display: inline-block;
+    position: absolute;
+    right: 4%;
+    font-size: 40px;
+    top: 10%;
+}
+#chevron_right:hover{
+    color: #0b0b0b;
+}
+#chevron_left:hover{
+    color: #0b0b0b;
+}
+
+
+
 /**************************分享按钮*****************************/
+
 .bdsharebuttonbox a {
     width:60px!important;
     height:60px!important;
@@ -79,6 +104,23 @@
 .bdsharebuttonbox a img {
     width:60px;
     height:60px;
+}
+
+.bdsharebuttonbox .bds_tsina {
+    background:url(../Images/weibo.png) no-repeat center center/60px 60px;
+}
+
+.bdsharebuttonbox .bds_weixin {
+    background:url(../Images/wechat.png) no-repeat center center/60px 60px;
+}
+.bdsharebuttonbox .bds_qzone {
+    background:url(../Images/qzone.png) no-repeat center center/60px 60px;
+}
+.bdsharebuttonbox .bds_twi {
+    background:url(../Images/twitter3.png) no-repeat center center/60px 60px;
+}
+.bdsharebuttonbox .bds_fbook {
+    background:url(../Images/facebook.png) no-repeat center center/60px 60px;
 }
 
 .bdshare-button-style0-16 a{
@@ -101,22 +143,6 @@
     background-position: center!important;
 }
 
-.bdsharebuttonbox .bds_tsina {
-background:url(../Images/weibo.png) no-repeat center center/60px 60px;
-}
-
-.bdsharebuttonbox .bds_weixin {
-    background:url(../Images/wechat.png) no-repeat center center/60px 60px;
-}
-.bdsharebuttonbox .bds_qzone {
-    background:url(../Images/qzone.png) no-repeat center center/60px 60px;
-}
-.bdsharebuttonbox .bds_twi {
-    background:url(../Images/twitter3.png) no-repeat center center/60px 60px;
-}
-.bdsharebuttonbox .bds_fbook {
-    background:url(../Images/facebook.png) no-repeat center center/60px 60px;
-}
 /*************************************************************/
 
 
