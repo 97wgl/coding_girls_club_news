@@ -101,8 +101,10 @@ app.post("/login", function (req, res) {
     const sql_str = "select * from Manager where manager_email = '" + manageLoginInfo.txt_email + "' and manager_pwd = '" + manageLoginInfo.txt_password + "'";
 
     db.all(sql_str, function (err, result) {
-        if(result) {
+        if(result.length !== 0) {
             res.send(true);
+        } else {
+            res.send(false);
         }
     });
 });
@@ -112,6 +114,22 @@ app.get("/all_news", function (req, res) {
 
     const req_page = req.query.page;
     const sql_str = "select * from news order by news_time desc limit ('"+req_page+"'-1)*8,8";
+    //根据前台传过来的page,从数据库动态查询相应信息
+    db.all(sql_str, function (err, result) {
+        if (err) {
+            console.log("读取数据失败！" + err);
+        } else {
+            console.log(result);
+            res.send(result);
+        }
+    });
+});
+
+//后台分页展示信息
+app.get("/all_blog", function (req, res) {
+
+    const req_page = req.query.page;
+    const sql_str = "select * from blogs order by blog_time desc limit ('"+req_page+"'-1)*8,8";
     //根据前台传过来的page,从数据库动态查询相应信息
     db.all(sql_str, function (err, result) {
         if (err) {
@@ -227,9 +245,9 @@ app.get('/all_blog_count', function (req, res) {
 });
 
 //邮箱验证
-app.get('/comfirm_email',function (req, res) {
+app.post('/comfirm_email',function (req, res) {
 
-    const input_email = req.query.checkEmail;
+    const input_email = req.body.forget_email;
     const sql_str = "select * from manager where manager_email = '"+input_email+"'";
 
     db.all(sql_str, function (err ,result) {
@@ -241,6 +259,22 @@ app.get('/comfirm_email',function (req, res) {
             res.send(false);
         }
     });
+});
+
+//根据时间筛选内容
+app.get('/time_search',function (req,res) {
+
+    const search_time = req.query.searchDate;
+    const sqlStr = "select * from news where news_time like '"+search_time+"%'";
+
+    db.all(sqlStr, function (err,result) {
+       if(!err){
+           res.send(result);
+       } else{
+           res.send(err);
+       }
+    });
+
 });
 
 //更改密码
@@ -333,7 +367,7 @@ app.put('/edit_news',function (req, res) {
     };
     const sqlStr = "update news set news_title ='"+editInfo.title+"',news_content ='"+editInfo.content+"' where id = '"+editInfo.id+"'";
 
-    db.prepare(sqlStr,function (err) {
+    db.run(sqlStr,function (err) {
         if (err) {
             res.send("更新失败！" + err);
         } else {
@@ -355,7 +389,7 @@ app.put('/edit_blog',function (req, res) {
     };
     const sqlStr = "update blogs set blog_time ='"+editInfo.time+"',blog_title ='"+editInfo.title+"',blog_content ='"+editInfo.content+"' where id = '"+editInfo.id+"'";
 
-    db.prepare(sqlStr,function (err) {
+    db.run(sqlStr,function (err) {
         if (err) {
             res.send("更新失败！" + err);
         } else {
