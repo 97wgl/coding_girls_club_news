@@ -1241,3 +1241,11 @@ footer a {
 	background: #eee;
 	cursor: pointer;
 }
+
+#box{
+
+}
+
+#pagination{
+	display: inline-block;
+}

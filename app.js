@@ -128,9 +128,9 @@ app.get("/all_news", function (req, res) {
 
     const req_page = req.query.page;
     const sql_str = "select * from news order by news_time desc limit ('"+req_page+"'-1)*4,4";
-    //根据前台传过来的page,从数据库动态查询相应信息
-    db.all(sql_str, function (err, result) {
-        if (err) {
+            //根据前台传过来的page,从数据库动态查询相应信息
+            db.all(sql_str, function (err, result) {
+                if (err) {
             console.log("读取数据失败！" + err);
         } else {
             console.log(result);
