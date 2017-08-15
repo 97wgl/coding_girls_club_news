@@ -72,7 +72,6 @@ li {
 }
 img {
 	max-width: 100%;
-	margin-top: -28px;
 	height: 102px;
 	-webkit-transition: all .25s ease;
 	-moz-transition: all .25s ease;
@@ -80,6 +79,18 @@ img {
 	-o-transition: all .25s ease;
 	transition: all .25s ease;
 }
+
+.item-image img {
+	max-width: 100%;
+	height: 127px;
+	width: 202px;
+	-webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
+}
+
 iframe,
 audio {
 	width: 100%;
@@ -163,7 +174,7 @@ h1,h2,h3,h4,h5,h6 {
 	height: 120px;
 }  /*顶端CodingGrilsClub图标板块样式*/
 .site-logo {
-	padding-top: 35px;
+	padding-top: 7px;
 }   /*顶端CodingGrilsClub图标样式*/
 
 /* Main Menu Section */
@@ -394,6 +405,10 @@ h1,h2,h3,h4,h5,h6 {
 /* Services Section */
 .services {
 	padding: 15px 0px 0px 0px;
+}
+.services .whole-news-line{
+	margin: 32px 0 32px 0;
+	border-bottom: 1px solid #d7dee0;
 }
 /*.service-area {*/
 /*border-bottom: 2px solid #209b60;*/
@@ -1207,10 +1222,7 @@ footer a {
 	margin: 9px;
 }
 .top .top-news .top-news-content{
-	border: 1px solid #e9e9e9;
-	box-shadow: none;
-	outline: 0 !important;
-	border-radius: 15px;
+	padding-right: 32px;
 }
 .top .top-news .top-news-content:hover{
 	background: #eee;
@@ -1219,6 +1231,11 @@ footer a {
 .top .top-news .top-news-content span{
 	color: #209b60;
 	font-size: 24px;
+	overflow : hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
 }
 .top .top-news .top-news-content p{
 	text-align: left;
@@ -1227,6 +1244,10 @@ footer a {
 	display: -webkit-box;
 	-webkit-line-clamp: 2;
 	-webkit-box-orient: vertical;
+}
+
+.top .top-news .top-news-line{
+	margin: 15px auto;
 }
 
 
