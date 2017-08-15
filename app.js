@@ -390,21 +390,6 @@ app.delete('/delete' ,function (req,res) {
     }
 });
 
-// 主页底部最近活动
-app.get("/activities", function (req, res) {
-
-    const sql_str = "select * from activities";
-
-    db.all(sql_str, function (err, result) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(result);
-            res.send(result);
-        }
-    });
-});
-
 
 
 
