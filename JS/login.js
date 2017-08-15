@@ -28,12 +28,13 @@ $(document).ready(function () {
 
         });
     });
+    $("#forgetPass").click(function () {
+        replaceForm();
+        history.pushState(null,null,'forget_pwd');
+    });
 });
 
-$("#forgetPass").click(function () {
-    replaceForm();
-    history.pushState(null,null,'forget_pwd');
-});
+
 // $("#reset_pw_btn").click(function () {
 //     confirmPw();
 // });
