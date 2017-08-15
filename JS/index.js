@@ -14,4 +14,50 @@ $(document).ready(function(){
         thirdText.find('span').html(headlineNews[2].news_title);
         thirdText.find('p').html(headlineNews[2].news_content);
     });
+
+    let count = 0;
+   $.ajax({
+       type:'GET',
+       url:'/all_news_count',
+       async:false,
+       success:function (data) {
+           count = data[0].all_news_count;
+       }
+   });
+    let page = parseInt((count+4)/4);
+    displaynews(1);
+    $(function() {
+        $("#pagination").pagination({
+            currentPage: 1,
+            totalPage: page,
+            isShow: true,
+            count: 7,
+            homePageText: "首页",
+            endPageText: "尾页",
+            prevPageText: "上一页",
+            nextPageText: "下一页",
+            callback: function(current) {
+                displaynews(current);
+            }
+        });
+    });
 });
+
+function displaynews(index) {
+    $('#simplecontent').html('');
+  $.get(`/all_news_pading?page=${index}`,(nesws)=>{
+        for(i=0;i<nesws.length;i++){
+            let li = $('<li></li>');
+            let img = $('<img>');
+            let h3 = $('<h3></h3>');
+            let p = $('<p></p>');
+            img.attr('src',`${nesws[i].news_image}`);
+            h3.html(`${nesws[i].news_title}`);
+            p.html(`${nesws[i].news_content}`);
+            li.append(img);
+            li.append(h3);
+            li.append(p);
+            $('#simplecontent').append(li);
+        }
+    })
+}

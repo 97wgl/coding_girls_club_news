@@ -1,5 +1,5 @@
 #paper{
-    margin: 120px auto;
+    margin: 40px auto;
     height: auto;
     width: 80%;
     box-shadow:0 0 10px rgba(0,0,0,0.5) ;
@@ -89,7 +89,15 @@
     color: #0b0b0b;
 }
 
+.site-logo {
+    padding-top: 35px;
+    height: auto;
+}
 
+.container .site-logo img{
+    height: 90px;
+    width: 21%;
+}
 
 /**************************分享按钮*****************************/
 
