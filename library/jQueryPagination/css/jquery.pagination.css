@@ -14,14 +14,14 @@
 }
 
 .ui-pagination-container .ui-pagination-page-item:hover {
-	border-color: #568dbd;
-	color: #568dbd;
+	border-color: #209b60;
+	color: #209b60;
 	text-decoration: none;
 }
 
 .ui-pagination-container .ui-pagination-page-item.active {
-	background: #568dbd;
-	border-color: #568dbd;
+	background: #209b60;
+	border-color: #209b60;
 	color: #fff;
 	cursor: default;
 }

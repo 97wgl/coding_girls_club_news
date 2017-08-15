@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="../CSS/magnific-popup.css">
-	<link href="../CSS/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/calendar.css">
+	<link href="../CSS/index.css" rel="stylesheet">
 	<link href="../CSS/animate.min.css" rel="stylesheet">
 	<link href="../CSS/owl.carousel.css" rel="stylesheet">
 	<link href="../CSS/responsive.css" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../library/jQueryPagination/css/jquery.pagination.css">
 
 </head>
 <body class="header-fixed-top"> <!--header-fixed-top：悬浮导航栏home样式 -->
@@ -133,21 +134,18 @@
         <div class="col-sm-5">
             <div class="top-news">
                 <div class="top-news-content" id="top-news-firstText">
-                    <span>&nbsp;Lorem ipsum dolor sit amet</span>
+                    <span></span>
                     <p>
-                        consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi Sed egestas, ante et vulputate
                     </p>
                 </div><hr class="top-news-line">
                 <div class="top-news-content" id="top-news-secondText">
-                    <span >&nbsp;Lorem ipsum dolor sit amet</span>
+                    <span ></span>
                     <p>
-                        consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi Sed egestas, ante et vulputate
                     </p>
                 </div><hr class="top-news-line">
                 <div class="top-news-content" id="top-news-thirdText">
-                    <span >&nbsp;Lorem ipsum dolor sit amet</span>
+                    <span ></span>
                     <p>
-                        consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi Sed egestas, ante et vulputate
                     </p>
                 </div>
             </div>
@@ -307,41 +305,16 @@
                     </div>
                     <div class="col-sm-11">
                         <!-- 主要的新闻列表-->
-                        <div class="main-news">
-                            <ul>
-                                <li>
-                                    <img src="../Images/15-01.jpg">
-                                    <h3>Headline<span>2017/8/15</span></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
-                                </li>
 
-                                <li>
-                                    <img src="../Images/20-01.jpg">
-                                    <h3>Headline<span>2017/8/15</span></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
-                                </li>
-
-                                <li>
-                                    <img src="../Images/22-01.jpg">
-                                    <h3>Headline<span>2017/8/15</span></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
-                                </li>
-
-                                <li>
-                                    <img src="../Images/24-01.jpg">
-                                    <h3>Headline<span>2017/8/15</span></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
-                                </li>
+                        <div class="main-news" id="main-news">
+                            <ul id="simplecontent">
                             </ul>
-                            <ul class="pagination">
-                                <li><a href="#">&laquo;</a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li class="disabled"><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">&raquo;</a></li>
-                            </ul>
+                            <!--************************分页********************-->
+                            <div id="box" class="text-center">
+                                <div id="pagination">
+                                </div>
+                            </div>
+                            <!--************************分页********************-->
                         </div>
                     </div>
                 </div><!-- /.service-items -->
@@ -365,49 +338,65 @@
             <div id="portfolio-slider" class="portfolio-slider owl-carousel owl-theme">
                 <div class="item">
                     <div class="item-image">
-                        <img src="../Images/portfolio/1.jpg" alt="Portfolio Image">
+                        <a href="http://www.codingirls.club/">
+                            <img src="../Images/portfolio/1.jpg" alt="Portfolio Image">
+                        </a>
                     </div>
                     <span class="item-title">We Are Family</span>
                 </div><!--Latest News滑页图片和图片描述部分-->
                 <div class="item">
                     <div class="item-image">
-                        <img src="../Images/portfolio/2.jpg" alt="Portfolio Image">
+                        <a href="http://www.codingirls.club/">
+                            <img src="../Images/portfolio/2.jpg" alt="Portfolio Image">
+                        </a>
                     </div>
                     <span class="item-title">Little Boy Coding</span>
                 </div>
                 <div class="item">
                     <div class="item-image">
-                        <img src="../Images/portfolio/3.jpg" alt="Portfolio Image">
+                        <a href="http://www.codingirls.club/">
+                            <img src="../Images/portfolio/3.jpg" alt="Portfolio Image">
+                        </a>
                     </div>
                     <span class="item-title">Aha! Good job!</span>
                 </div>
                 <div class="item">
                     <div class="item-image">
-                        <img src="../Images/portfolio/4.jpg" alt="Portfolio Image">
+                        <a href="http://www.codingirls.club/">
+                            <img src="../Images/portfolio/4.jpg" alt="Portfolio Image">
+                        </a>
                     </div>
                     <span class="item-title">Don't you want to come?</span>
                 </div>
                 <div class="item">
                     <div class="item-image">
-                        <img src="../Images/portfolio/5.jpg" alt="Portfolio Image">
+                        <a href="http://www.codingirls.club/">
+                            <img src="../Images/portfolio/5.jpg" alt="Portfolio Image">
+                        </a>
                     </div>
                     <span class="item-title">Let's Coding</span>
                 </div>
                 <div class="item">
                     <div class="item-image">
-                        <img src="../Images/portfolio/6.jpg" alt="Portfolio Image">
+                        <a href="http://www.codingirls.club/">
+                            <img src="../Images/portfolio/6.jpg" alt="Portfolio Image">
+                        </a>
                     </div>
                     <span class="item-title">Welcome To ThoughtWorks</span>
                 </div>
                 <div class="item">
                     <div class="item-image">
-                        <img src="../Images/portfolio/7.jpg" alt="Portfolio Image">
+                        <a href="http://www.codingirls.club/">
+                            <img src="../Images/portfolio/7.jpg" alt="Portfolio Image">
+                        </a>
                     </div>
                     <span class="item-title">Join us!</span>
                 </div>
                 <div class="item">
                     <div class="item-image">
-                        <img src="../Images/portfolio/8.jpg" alt="Portfolio Image">
+                        <a href="http://www.codingirls.club/">
+                            <img src="../Images/portfolio/8.jpg" alt="Portfolio Image">
+                        </a>
                     </div>
                     <span class="item-title">Hello World</span>
                 </div>
@@ -472,6 +461,7 @@
 <script src="../JS/wow.min.js"></script>
 <script type="text/javascript" src="../JS/jquery.ajaxchimp.min.js"></script>
 <script src="../JS/index.js"></script>
+<script src="../library/jQueryPagination/js/jquery.pagination.min.js"></script>
 <script>
 
     $(document).ready(function() {
@@ -527,6 +517,8 @@
     });
 
 </script>
+
+
 
 </body>
 </html>
