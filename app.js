@@ -34,6 +34,11 @@ app.get('/login', function (req, res) {
     res.sendFile(__dirname + '/HTML/' + 'login.html');
 });
 
+//读取blog-single.html文件
+app.get('/blog-single', function (req, res) {
+    res.sendFile(__dirname + '/HTML/' + 'blog-single.html');
+});
+
 //读取manage.html文件
 app.get('/admin', function (req, res) {
     res.sendFile(__dirname + '/HTML/' + 'manage.html');
