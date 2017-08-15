@@ -124,7 +124,7 @@ app.get("/all_news", function (req, res) {
 });
 
 //前台分页展示新闻信息
-app.get("/all_news", function (req, res) {
+app.get("/all_news_pading", function (req, res) {
 
     const req_page = req.query.page;
     const sql_str = "select * from news order by news_time desc limit ('"+req_page+"'-1)*4,4";
@@ -299,6 +299,7 @@ app.post('/addNews', function (req,res) {
     });
 });
 
+//编辑新闻
 app.put('/edit_news',function (req, res) {
 
     const editInfo = {
