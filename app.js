@@ -101,8 +101,10 @@ app.post("/login", function (req, res) {
     const sql_str = "select * from Manager where manager_email = '" + manageLoginInfo.txt_email + "' and manager_pwd = '" + manageLoginInfo.txt_password + "'";
 
     db.all(sql_str, function (err, result) {
-        if(result) {
+        if(result.length !== 0) {
             res.send(true);
+        } else {
+            res.send(false);
         }
     });
 });
@@ -123,14 +125,30 @@ app.get("/all_news", function (req, res) {
     });
 });
 
-//前台分页展示新闻信息
-app.get("/all_news", function (req, res) {
+//后台分页展示信息
+app.get("/all_blog", function (req, res) {
 
     const req_page = req.query.page;
-    const sql_str = "select * from news order by news_time desc limit ('"+req_page+"'-1)*4,4";
+    const sql_str = "select * from blogs order by blog_time desc limit ('"+req_page+"'-1)*8,8";
     //根据前台传过来的page,从数据库动态查询相应信息
     db.all(sql_str, function (err, result) {
         if (err) {
+            console.log("读取数据失败！" + err);
+        } else {
+            console.log(result);
+            res.send(result);
+        }
+    });
+});
+
+//前台分页展示新闻信息
+app.get("/all_news_pading", function (req, res) {
+
+    const req_page = req.query.page;
+    const sql_str = "select * from news order by news_time desc limit ('"+req_page+"'-1)*4,4";
+            //根据前台传过来的page,从数据库动态查询相应信息
+            db.all(sql_str, function (err, result) {
+                if (err) {
             console.log("读取数据失败！" + err);
         } else {
             console.log(result);
@@ -227,9 +245,9 @@ app.get('/all_blog_count', function (req, res) {
 });
 
 //邮箱验证
-app.get('/comfirm_email',function (req, res) {
+app.post('/comfirm_email',function (req, res) {
 
-    const input_email = req.query.checkEmail;
+    const input_email = req.body.forget_email;
     const sql_str = "select * from manager where manager_email = '"+input_email+"'";
 
     db.all(sql_str, function (err ,result) {
@@ -241,6 +259,22 @@ app.get('/comfirm_email',function (req, res) {
             res.send(false);
         }
     });
+});
+
+//根据时间筛选内容
+app.get('/time_search',function (req,res) {
+
+    const search_time = req.query.searchDate;
+    const sqlStr = "select * from news where news_time like '"+search_time+"%'";
+
+    db.all(sqlStr, function (err,result) {
+       if(!err){
+           res.send(result);
+       } else{
+           res.send(err);
+       }
+    });
+
 });
 
 //更改密码
@@ -277,7 +311,7 @@ app.get('/detail',function (req,res) {
     })
 });
 
-//后台
+//后台添加新闻
 app.post('/addNews', function (req,res) {
 
     let newsInfo = {
@@ -299,6 +333,29 @@ app.post('/addNews', function (req,res) {
     });
 });
 
+//后台添加博客
+app.post('/addblog', function (req,res) {
+
+    let blogInfo = {
+        time:req.body.time,
+        title:req.body.title,
+        content:req.body.content,
+        headline:req.body.isHeadline
+    };
+
+    const sqlStr = "insert into blogs(blog_time,blog_title,blog_content,isHeadline) values('"+blogInfo.time+"','"+blogInfo.title+"','"+blogInfo.content+"','"+blogInfo.headline+"')";
+
+    db.run(sqlStr, function (err) {
+        if (err) {
+            console.log("录入失败！" + err);
+        } else {
+            res.status(200).send('录入成功！');
+            console.log("录入成功！");
+        }
+    });
+});
+
+//编辑新闻
 app.put('/edit_news',function (req, res) {
 
     const editInfo = {
@@ -306,11 +363,33 @@ app.put('/edit_news',function (req, res) {
         title:req.body.title,
         content:req.body.content,
         headline:req.body.isHeadline,
-        id:req.body.id
+        id:req.body.modify
     };
-    const sqlStr = "update news set news_time ='"+editInfo.time+"',news_title ='"+editInfo.title+"',news_content ='"+editInfo.content+"' where id = '"+editInfo.id+"'";
+    const sqlStr = "update news set news_title ='"+editInfo.title+"',news_content ='"+editInfo.content+"' where id = '"+editInfo.id+"'";
 
-    db.prepare(sqlStr,function (err) {
+    db.run(sqlStr,function (err) {
+        if (err) {
+            res.send("更新失败！" + err);
+        } else {
+            res.status(200).send('修改成功！');
+            console.log("修改成功！");
+        }
+    });
+});
+
+//编辑博客
+app.put('/edit_blog',function (req, res) {
+
+    const editInfo = {
+        time:req.body.time,
+        title:req.body.title,
+        content:req.body.content,
+        headline:req.body.isHeadline,
+        id:req.body.modify
+    };
+    const sqlStr = "update blogs set blog_time ='"+editInfo.time+"',blog_title ='"+editInfo.title+"',blog_content ='"+editInfo.content+"' where id = '"+editInfo.id+"'";
+
+    db.run(sqlStr,function (err) {
         if (err) {
             res.send("更新失败！" + err);
         } else {

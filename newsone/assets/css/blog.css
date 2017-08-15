@@ -1135,3 +1135,9 @@ footer a {
     height: 123px;
     margin-top: 6px;
 }
+.main-news span{
+    float: right;
+    margin-top: 11px;
+    font-size: 15px;
+    color: #869093;
+}
