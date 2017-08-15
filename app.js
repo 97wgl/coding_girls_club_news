@@ -277,7 +277,7 @@ app.get('/detail',function (req,res) {
     })
 });
 
-//后台
+//后台添加新闻
 app.post('/addNews', function (req,res) {
 
     let newsInfo = {
@@ -299,6 +299,28 @@ app.post('/addNews', function (req,res) {
     });
 });
 
+//后台添加博客
+app.post('/addblog', function (req,res) {
+
+    let blogInfo = {
+        time:req.body.time,
+        title:req.body.title,
+        content:req.body.content,
+        headline:req.body.isHeadline
+    };
+
+    const sqlStr = "insert into blogs(blog_time,blog_title,blog_content,isHeadline) values('"+blogInfo.time+"','"+blogInfo.title+"','"+blogInfo.content+"','"+blogInfo.headline+"')";
+
+    db.run(sqlStr, function (err) {
+        if (err) {
+            console.log("录入失败！" + err);
+        } else {
+            res.status(200).send('录入成功！');
+            console.log("录入成功！");
+        }
+    });
+});
+
 //编辑新闻
 app.put('/edit_news',function (req, res) {
 
@@ -307,9 +329,31 @@ app.put('/edit_news',function (req, res) {
         title:req.body.title,
         content:req.body.content,
         headline:req.body.isHeadline,
-        id:req.body.id
+        id:req.body.modify
     };
-    const sqlStr = "update news set news_time ='"+editInfo.time+"',news_title ='"+editInfo.title+"',news_content ='"+editInfo.content+"' where id = '"+editInfo.id+"'";
+    const sqlStr = "update news set news_title ='"+editInfo.title+"',news_content ='"+editInfo.content+"' where id = '"+editInfo.id+"'";
+
+    db.prepare(sqlStr,function (err) {
+        if (err) {
+            res.send("更新失败！" + err);
+        } else {
+            res.status(200).send('修改成功！');
+            console.log("修改成功！");
+        }
+    });
+});
+
+//编辑博客
+app.put('/edit_blog',function (req, res) {
+
+    const editInfo = {
+        time:req.body.time,
+        title:req.body.title,
+        content:req.body.content,
+        headline:req.body.isHeadline,
+        id:req.body.modify
+    };
+    const sqlStr = "update blogs set blog_time ='"+editInfo.time+"',blog_title ='"+editInfo.title+"',blog_content ='"+editInfo.content+"' where id = '"+editInfo.id+"'";
 
     db.prepare(sqlStr,function (err) {
         if (err) {
@@ -344,6 +388,21 @@ app.delete('/delete' ,function (req,res) {
             }
         })
     }
+});
+
+// 主页底部最近活动
+app.get("/activities", function (req, res) {
+
+    const sql_str = "select * from activities";
+
+    db.all(sql_str, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(result);
+            res.send(result);
+        }
+    });
 });
 
 
