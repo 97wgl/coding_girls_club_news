@@ -1229,7 +1229,7 @@ footer a {
 	cursor: pointer;
 }
 .top .top-news .top-news-content span{
-	color: #209b60;
+	color: #2b2b2b;
 	font-size: 24px;
 	overflow : hidden;
 	text-overflow: ellipsis;
@@ -1268,10 +1268,6 @@ footer a {
 	cursor: pointer;
 }
 
-#box{
-
-}
-
 #pagination{
 	display: inline-block;
 }
@@ -1282,4 +1278,8 @@ footer a {
 	display:-webkit-box;
 	-webkit-line-clamp:4;
 	-webkit-box-orient:vertical;
+}
+
+#simplecontent h3 {
+	color: #2b2b2b;
 }
