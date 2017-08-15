@@ -1,14 +1,4 @@
 
-window._bd_share_config = {
-    common : {
-        bdText :`${$('#paper_title').val()}`,
-        bdDesc : 'Fly to sky',
-        bdUrl : `${window.location.href}`,
-        bdPic : 'http://insights.thoughtworkers.org/wp-content/uploads/2015/07/cropped-cropped-TWInsights-1.jpg'
-    },
-    share : [{
-        "bdSize" : 16}],
-};
 with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
 
 $().ready(()=>{
