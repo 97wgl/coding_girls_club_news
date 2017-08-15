@@ -124,7 +124,7 @@ app.get("/all_news", function (req, res) {
 });
 
 //前台分页展示新闻信息
-app.get("/all_news", function (req, res) {
+app.get("/all_news_pading", function (req, res) {
 
     const req_page = req.query.page;
     const sql_str = "select * from news order by news_time desc limit ('"+req_page+"'-1)*4,4";
@@ -246,7 +246,7 @@ app.get('/comfirm_email',function (req, res) {
 //更改密码
 app.put('/modify_password', function (req, res) {
 
-    const new_email = req.params.input_email;
+    const new_email = req.body.input_email;
     const sql_str = "update manager set manager where manager_eamil = '" + new_email + "'";
 
     db.run(sql_str, function (err) {
@@ -299,14 +299,15 @@ app.post('/addNews', function (req,res) {
     });
 });
 
-app.put('/edit_news/:id',function (req, res) {
+//编辑新闻
+app.put('/edit_news',function (req, res) {
 
     const editInfo = {
-        time:req.params.time,
-        title:req.params.title,
-        content:req.params.content,
-        headline:req.params.isHeadline,
-        id:req.params.id
+        time:req.body.time,
+        title:req.body.title,
+        content:req.body.content,
+        headline:req.body.isHeadline,
+        id:req.body.id
     };
     const sqlStr = "update news set news_time ='"+editInfo.time+"',news_title ='"+editInfo.title+"',news_content ='"+editInfo.content+"' where id = '"+editInfo.id+"'";
 
@@ -323,8 +324,8 @@ app.put('/edit_news/:id',function (req, res) {
 //删除新闻或博客
 app.delete('/delete' ,function (req,res) {
 
-    const deleteId = req.params.delId;
-    const deleteType = req.params.delType;
+    const deleteId = req.body.delId;
+    const deleteType = req.body.delType;
 
     if(deleteType === "news"){
         db.run("delete from  news where id = '"+deleteId+"'",function (err) {

@@ -38,6 +38,7 @@ $("#forgetPass").click(function () {
 //     confirmPw();
 // });
 
+
 function replaceForm() {
     let forgetForm = document.getElementById("login-form");
     let newForgetForm =
