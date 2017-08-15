@@ -107,20 +107,20 @@
 }
 
 .bdsharebuttonbox .bds_tsina {
-    background:url(../Images/weibo.png) no-repeat center center/60px 60px;
+    background:url(../Images/icons/weibo.png) no-repeat center center/60px 60px;
 }
 
 .bdsharebuttonbox .bds_weixin {
-    background:url(../Images/wechat.png) no-repeat center center/60px 60px;
+    background:url(../Images/icons/wechat.png) no-repeat center center/60px 60px;
 }
 .bdsharebuttonbox .bds_qzone {
-    background:url(../Images/qzone.png) no-repeat center center/60px 60px;
+    background:url(../Images/icons/qzone.png) no-repeat center center/60px 60px;
 }
 .bdsharebuttonbox .bds_twi {
-    background:url(../Images/twitter3.png) no-repeat center center/60px 60px;
+    background:url(../Images/icons/twitter3.png) no-repeat center center/60px 60px;
 }
 .bdsharebuttonbox .bds_fbook {
-    background:url(../Images/facebook.png) no-repeat center center/60px 60px;
+    background:url(../Images/icons/facebook.png) no-repeat center center/60px 60px;
 }
 
 .bdshare-button-style0-16 a{
