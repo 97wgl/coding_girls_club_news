@@ -147,8 +147,15 @@ h1,h2,h3,h4,h5,h6 {
 	line-height: 55px;
 }
 .contact-list li {
-	padding-right: 25px;
+	padding: 0 13px;
 }
+.contact-list-news{
+	background-color: rgba(255,255,255,0.2);
+}
+.contact-list-blog:hover{
+	background-color: rgba(255,255,255,0.2);
+}
+
 .contact-list a {
 	color: #ffffff;
 } /*顶部News，Blog，Sign in 字体样式*/
