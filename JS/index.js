@@ -51,13 +51,16 @@ function displaynews(index) {
             let img = $('<img>');
             let h3 = $('<h3></h3>');
             let p = $('<p></p>');
+            let a = $('<a></a>');
             img.attr('src',`${nesws[i].news_image}`);
+            a.attr('href',`http://localhost:3000/HTML/detail.html?id=${nesws[i].id}`);
             h3.html(`${nesws[i].news_title}`);
             p.html(`${nesws[i].news_content}`);
             li.append(img);
             li.append(h3);
             li.append(p);
-            $('#simplecontent').append(li);
+            a.append(li);
+            $('#simplecontent').append(a);
         }
     })
 }
