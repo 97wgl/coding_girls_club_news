@@ -1267,3 +1267,9 @@ footer a {
 	background: #eee;
 	cursor: pointer;
 }
+.services .main-news span{
+	float: right;
+	margin-top: 11px;
+	font-size: 15px;
+	color: #869093;
+}
