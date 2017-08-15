@@ -61,3 +61,51 @@ function displaynews(index) {
         }
     })
 }
+
+function  displaySearch(nesws) {
+    for(i=0;i<nesws.length;i++){
+        let li = $('<li></li>');
+        let img = $('<img>');
+        let h3 = $('<h3></h3>');
+        let p = $('<p></p>');
+        img.attr('src',`${nesws[i].news_image}`);
+        h3.html(`${nesws[i].news_title}`);
+        p.html(`${nesws[i].news_content}`);
+        li.append(img);
+        li.append(h3);
+        li.append(p);
+        $('#simplecontent').append(li);
+    }
+
+}
+$("#201701").click(function () {
+    let id="2017-01";
+    $.get(`/time_search?searchDate=${id}`,function (res) {
+        displaySearch(res);
+    });
+});
+$("#201702").click(function () {
+    let id="2017-02";
+    $.get(`/time_search?searchDate=${id}`,function (res) {
+        displaySearch(res);
+    });
+});
+$("#201703").click(function () {
+    let id="2017-03";
+    $.get(`/time_search?searchDate=${id}`,function (res) {
+        displaySearch(res);
+    });
+});
+$("#201704").click(function () {
+    let id="2017-04";
+    $.get(`/time_search?searchDate=${id}`,function (res) {
+        displaySearch(res);
+    });
+});
+$("#201708").click(function () {
+    let id="2017-08";
+    $.get(`/time_search?searchDate=${id}`,function (res) {
+        displaySearch(res);
+    });
+});
+
