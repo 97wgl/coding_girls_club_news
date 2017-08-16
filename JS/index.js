@@ -143,13 +143,16 @@ function displaynews(index) {
             let h3 = $('<h3></h3>');
             let p = $('<p></p>');
             let a = $('<a></a>');
+            let span = $('<span></span>');
             img.attr('src',`${news[i].news_image}`);
             a.attr('href',`http://localhost:3000/HTML/detail.html?id=${news[i].id}`);
             h3.html(`${news[i].news_title}`);
             p.html(`${news[i].news_content}`);
+            span.html(`${news[i].news_time}`);
             li.append(img);
             li.append(h3);
             li.append(p);
+            li.append(span);
             a.append(li);
             $('#simplecontent').append(a);
         }
