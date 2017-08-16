@@ -90,11 +90,11 @@ function displaynews(index) {
             let p = $('<p></p>');
             let a = $('<a></a>');
             let span = $('<span></span>');
-            img.attr('src',`${nesws[i].news_image}`);
-            a.attr('href',`http://localhost:3000/HTML/detail.html?id=${nesws[i].id}`);
-            h3.html(`${nesws[i].news_title}`);
-            p.html(`${nesws[i].news_content}`);
-            span.html(`${nesws[i].news_time}`);
+            img.attr('src',`${news[i].news_image}`);
+            a.attr('href',`http://localhost:3000/HTML/detail.html?id=${news[i].id}`);
+            h3.html(`${news[i].news_title}`);
+            p.html(`${news[i].news_content}`);
+            span.html(`${news[i].news_time}`);
             li.append(img);
             li.append(h3);
             li.append(p);
