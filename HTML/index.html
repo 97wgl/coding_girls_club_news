@@ -69,19 +69,19 @@
                 </div>
                 <nav id="menu" class="menu collapse navbar-collapse">
                     <ul id="headernavigation" class="menu-list nav navbar-nav">
-                        <li class="active"><a href="#page-top">News</a></li>
-                        <li><a href="#portfolio">Latest</a></li>
-                        <li><a href="#services">Today</a></li>
+                        <li class="active"><a href="#bootstrap">Home</a></li>
+                        <li><a href="#services">News</a></li>
+                        <li><a href="#portfolio">Actives</a></li>
                         <li><a href="#footer">Contact</a></li>
                     </ul><!-- /.menu-list菜单列表-->
                 </nav><!-- /.menu-list -->
             </div>
             <div class="col-sm-5">
-                <form class="navbar-form navbar-right">
+                <form class="navbar-form navbar-right" id="searchForm">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" placeholder="Search" id="searchText">
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
+                        <button type="submit" class="btn btn-default" id="searchSubmit">Submit</button>
                 </form>
             </div>
         </div><!-- /.row -->
@@ -89,7 +89,7 @@
 </header><!-- /#main-menu -->
 
 <!--轮播图 bootstrap样式-->
-<div class="top">
+<section id="bootstrap" class="top">
     <div class="row">
         <div class="col-sm-7">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -142,7 +142,7 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <!--Today News板块-->
 <div id="services" class="services">
@@ -165,8 +165,7 @@
             </div>
             <div style="height: 5px"></div>
             <div class="search-content" >
-                <div class="row">
-                    <div class="col-sm-1">
+                    <div class="left-content">
                         <nav class="navbar navbar-default" role="navigation">
                             <div class="container-fluid">
                                 <div>
@@ -294,7 +293,7 @@
                             </div>
                         </nav>
                     </div>
-                    <div class="col-sm-11">
+                    <div class="right-content">
                         <!-- 主要的新闻列表-->
 
                         <div class="main-news" id="main-news">
@@ -304,7 +303,7 @@
                             <div id="box" class="text-center">
                                 <div id="pagination">
                                 </div>
-                            </div>
+
                             <!--************************分页********************-->
                         </div>
                     </div>
