@@ -2,6 +2,39 @@ $(document).ready(function(){
 
     newsListInfo();
     let count = 0;
+   $.ajax({
+       type:'GET',
+       url:'/all_news_count',
+       async:false,
+       success:function (data) {
+           count = data[0].all_news_count;
+           let page = parseInt((count+4)/4);
+           displaynews(1);
+           $(function() {
+               $("#pagination").pagination({
+                   currentPage: 1,
+                   totalPage: page,
+                   isShow: true,
+                   count: 7,
+                   homePageText: "首页",
+                   endPageText: "尾页",
+                   prevPageText: "上一页",
+                   nextPageText: "下一页",
+                   callback: function(current) {
+                       displaynews(current);
+                   }
+               });
+           });
+       }
+   });
+
+})
+/*function diPlaySearchNews(news) {
+    let count = news.length;
+    let page = parseInt((count + 4) / 4);
+    disPlayPage(1,news);
+    $(function () {
+=======
     $.ajax({
         type:'GET',
         url:'/all_news_count',
@@ -13,8 +46,33 @@ $(document).ready(function(){
 
     let page = parseInt((count+4)/4);
     displaynews(1);
+<<<<<<< HEAD
 
     //分页
+=======
+<<<<<<< HEAD
+    $(function() {
+
+/*function disPlayPage(n,news) {
+    let i = (n-1) * 4;
+    for (; i < (n-1) * 4 + 4; i++) {
+        let li = $('<li></li>');
+        let img = $('<img>');
+        let h3 = $('<h3></h3>');
+        let p = $('<p></p>');
+        let a = $('<a></a>');
+        img.attr('src', `${news[i].news_image}`);
+        a.attr('href', `http://localhost:3000/HTML/detail.html?id=${nesws[i].id}`);
+        h3.html(`${news[i].news_title}`);
+        p.html(`${news[i].news_content}`);
+        li.append(img);
+        li.append(h3);
+        li.append(p);
+        a.append(li);
+        $('#simplecontent').append(a);
+    }
+}*/
+>>>>>>> master
     $("#pagination").pagination({
         currentPage: 1,
         totalPage: page,
@@ -52,8 +110,7 @@ $(document).ready(function(){
                 $('#simplecontent').append(a);
             }
         })
-    })
-});
+    });
 
 //阻止页面刷新
 $().ready(()=>{
@@ -94,15 +151,75 @@ function displaynews(index) {
             let h3 = $('<h3></h3>');
             let p = $('<p></p>');
             let a = $('<a></a>');
+            let span = $('<span></span>');
             img.attr('src',`${news[i].news_image}`);
             a.attr('href',`http://localhost:3000/HTML/detail.html?id=${news[i].id}`);
             h3.html(`${news[i].news_title}`);
             p.html(`${news[i].news_content}`);
+            span.html(`${news[i].news_time}`);
             li.append(img);
             li.append(h3);
             li.append(p);
+            li.append(span);
             a.append(li);
             $('#simplecontent').append(a);
         }
     })
 }
+
+function  displaySearch(nesws) {
+    for(i=0;i<nesws.length;i++){
+        let li = $('<li></li>');
+        let img = $('<img>');
+        let h3 = $('<h3></h3>');
+        let p = $('<p></p>');
+        img.attr('src',`${nesws[i].news_image}`);
+        h3.html(`${nesws[i].news_title}`);
+        p.html(`${nesws[i].news_content}`);
+        li.append(img);
+        li.append(h3);
+        li.append(p);
+        $('#simplecontent').append(li);
+    }
+
+}
+$("#201701").click(function () {
+    let id="2017-01";
+    $.get(`/time_search?searchDate=${id}`,function (res) {
+       displaySearch(res);
+    });
+    document.getElementById('pagination').totalPage=6;
+});
+$("#201702").click(function () {
+    let id="2017-02";
+    $.get(`/time_search?searchDate=${id}`,function (res) {
+        displaySearch(res);
+    });
+});
+$("#201703").click(function () {
+    let id="2017-03";
+    $.get(`/time_search?searchDate=${id}`,function (res) {
+        displaySearch(res);
+    });
+});
+$("#201704").click(function () {
+    let id="2017-04";
+    $.get(`/time_search?searchDate=${id}`,function (res) {
+        displaySearch(res);
+    });
+});
+$("#201708").click(function () {
+    let id="2017-08";
+    $.get(`/time_search?searchDate=${id}`,function (res) {
+        displaySearch(res);
+    });
+
+});
+$("#201709").click(function () {
+    let id="2017-09";
+    $.get(`/time_search?searchDate=${id}`,function (res) {
+        displaySearch(res);
+    });
+
+});
+

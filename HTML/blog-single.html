@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Heera HTML5 Template by Jewel Theme</title>
+	<title>Coding Girls Club</title>
 	<meta name="description" content="Heera HTML5 Template by Jewel Theme" >
 	<meta name="author" content="Jewel Theme">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,15 +22,6 @@
     <link href="../CSS/login.css" rel="stylesheet">
     <link href="../CSS/calendar.css" rel="stylesheet">
     <link href="../CSS/blog.css" rel="stylesheet">
-    <!-- Include modernizr-2.8.3.min.js -->
-    <script src="../JS/modernizr-2.8.3.min.js"></script>
-    <!-- Include jquery.min.js plugin -->
-    <script src="../JS/jquery-2.1.0.min.js"></script>
-    <!-- Javascript Plugins  -->
-    <script src="../JS/plugins.js"></script>
-    <!-- Custom Functions  -->
-    <script src="../JS/functions.js"></script>
-    <script src="../JS/wow.min.js"></script>
 </head>
 <body class="header-fixed-top">
     <!-- 点击Home返回的部分 -->
@@ -67,7 +58,7 @@
     <section id="site-banner" class="site-banner text-center">
       <div class="container">
         <div class="site-logo">
-          <a href="./"><img src="../Images/logo.jpg" ></a>
+          <p href="./"><img src="../Images/logo.jpg" ></p>
         </div><!-- /.site-logo -->
       </div><!-- /.container -->
     </section><!-- /#site-banner -->
@@ -83,8 +74,8 @@
               </div>
               <nav id="menu" class="menu collapse navbar-collapse">
                 <ul id="headernavigation" class="menu-list nav navbar-nav">
-                  <li><a href="#page-top">Blog</a></li>
-                  <li class="active"><a href="#blogs">Latest</a></li>
+                  <li><a href="#main-content" class="active">Latest</a></li>
+                  <li ><a href="#blogs">Blog</a></li>
                   <li><a href="#footer">Contact</a></li>
                 </ul><!-- /.menu-list -->
               </nav><!-- /.menu-list -->
@@ -122,52 +113,52 @@
                     <h3 class="widget-title">
                       Latest Blogs
                     </h3><!-- /.widget-title -->
-                    <ul class="recent-post">
-                      <li>
+                    <ul class="recent-post" id="recent-post">
+                      <!--<li>
                         <div class="recent-post-details">
-                          <a class="post-title" href="#">Standard Blog Post Title</a><br>
+                          <a class="post-title" href="#" id="post-title1"></a><br>
                           <div class="post-meta">
-                            <time datetime="2017-08-16">16 August</time>
-                            <a href="#">Anthony Doe</a>
-                          </div><!-- /.post-meta -->
-                        </div><!-- /.recent-post-details -->
+                            <time  ></time>
+                            <a href="#"></a>
+                          </div>&lt;!&ndash; /.post-meta &ndash;&gt;
+                        </div>&lt;!&ndash; /.recent-post-details &ndash;&gt;
                       </li>
                       <li>
                         <div class="recent-post-details">
-                          <a class="post-title" href="#">Standard Blog Post Title</a><br>
+                          <a class="post-title" href="#" id="post-title2"></a><br>
                           <div class="post-meta">
-                            <time datetime="2017-08-16">16 August</time>
-                            <a href="#">Anthony Doe</a>
-                          </div><!-- /.post-meta -->
-                        </div><!-- /.recent-post-details -->
+                            <time  ></time>
+                            <a href="#"></a>
+                          </div>&lt;!&ndash; /.post-meta &ndash;&gt;
+                        </div>&lt;!&ndash; /.recent-post-details &ndash;&gt;
                       </li>
                       <li>
                         <div class="recent-post-details">
-                          <a class="post-title" href="#">Standard Blog Post Title</a><br>
+                          <a class="post-title" href="#" id="post-title3"></a><br>
                           <div class="post-meta">
-                            <time datetime="2017-08-16">16 August</time>
-                            <a href="#">Anthony Doe</a>
-                          </div><!-- /.post-meta -->
-                        </div><!-- /.recent-post-details -->
+                            <time  ></time>
+                            <a href="#"></a>
+                          </div>&lt;!&ndash; /.post-meta &ndash;&gt;
+                        </div>&lt;!&ndash; /.recent-post-details &ndash;&gt;
                       </li>
                       <li>
                         <div class="recent-post-details">
-                          <a class="post-title" href="#">Standard Blog Post Title</a><br>
+                          <a class="post-title" href="#" id="post-title4"></a><br>
                           <div class="post-meta">
-                            <time datetime="2017-08-16">16 August</time>
-                            <a href="#">Anthony Doe</a>
-                          </div><!-- /.post-meta -->
-                        </div><!-- /.recent-post-details -->
+                            <time  ></time>
+                            <a href="#"></a>
+                          </div>&lt;!&ndash; /.post-meta &ndash;&gt;
+                        </div>&lt;!&ndash; /.recent-post-details &ndash;&gt;
                       </li>
                       <li>
                         <div class="recent-post-details">
-                          <a class="post-title" href="#">Standard Blog Post Title</a><br>
+                          <a class="post-title" href="#" id="post-title5"></a><br>
                           <div class="post-meta">
-                            <time datetime="2017-08-16">16 August</time>
-                            <a href="#">Anthony Doe</a>
-                          </div><!-- /.post-meta -->
-                        </div><!-- /.recent-post-details -->
-                      </li>
+                            <time  ></time>
+                            <a href="#"></a>
+                          </div>&lt;!&ndash; /.post-meta &ndash;&gt;
+                        </div>&lt;!&ndash; /.recent-post-details &ndash;&gt;
+                      </li>-->
                     </ul><!-- /.recent-post -->
                   </aside><!-- /.widget -->
                 </div><!-- /.sidebar-content -->
@@ -319,73 +310,49 @@
                 </nav>
               </div>
               <div class="col-sm-11">
-                <!-- 主要的新闻列表-->
-                <div class="main-news">
+                <!-- 主要的博客列表-->
+                <div class="main-blog">
                   <ul>
                     <li>
-                      <div class="row">
-                        <div class="col-sm-2">
-                          <img src="../Images/services/1.jpg">
-                        </div>
-                        <div class="col-sm-10">
-                          <h3>Headline<span>2017/8/15</span></h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
-                        </div>
-                      </div>
+                      <img src="../Images/15-01.jpg">
+                      <h3>Headline</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
+                      <span>2017-08-11</span>
                     </li>
 
                     <li>
-                      <div class="row">
-                        <div class="col-sm-2">
-                          <img src="../Images/services/2.jpg">
-                        </div>
-                        <div class="col-sm-10">
-                          <h3>Headline<span>2017/8/15</span></h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
-                        </div>
-                      </div>
+                      <img src="../Images/20-01.jpg">
+                      <h3>Headline</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
                     </li>
 
                     <li>
-                      <div class="row">
-                        <div class="col-sm-2">
-                          <img src="../Images/services/3.jpg">
-                        </div>
-                        <div class="col-sm-10">
-                          <h3>Headline<span>2017/8/15</span></h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
-                        </div>
-                      </div>
+                      <img src="../Images/22-01.jpg">
+                      <h3>Headline</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
                     </li>
 
                     <li>
-                      <div class="row">
-                        <div class="col-sm-2">
-                          <img src="../Images/services/4.jpg">
-                        </div>
-                        <div class="col-sm-10">
-                          <h3>Headline<span>2017/8/15</span></h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
-                        </div>
-                      </div>
+                      <img src="../Images/24-01.jpg">
+                      <h3>Headline</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
                     </li>
                   </ul>
                   <ul class="pagination">
                     <li><a href="#">&laquo;</a ></li>
                     <li class="active"><a href="#">1</a ></li>
-                    <li class="disabled"><a href="#">2</a ></li>
+                    <li><a href="#">2</a ></li>
                     <li><a href="#">3</a ></li>
                     <li><a href="#">4</a ></li>
                     <li><a href="#">5</a ></li>
                     <li><a href="#">&raquo;</a ></li>
                   </ul>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div><!--主blog下半部分-->
-      <!-- /.container -->
+        </div><!-- /.container -->
     </section><!-- /#main-content -->
     <!--Contact us板块-->
     <footer class="footer" id="footer">
@@ -434,6 +401,68 @@
         <i class="fa fa-chevron-up"></i>
       </span>
     </div><!-- /#scroll-to-top -->
+    <script>
 
-</body>
+        $(document).ready(function() {
+
+          /* -------- One page Navigation ----------*/
+            $('#main-menu #menu').onePageNav({
+                currentClass: 'active',
+                changeHash: false,
+                scrollSpeed: 1500,
+                scrollThreshold: 0.5,
+                scrollOffset: 95,
+                filter: ':not(.sub-menu a, .not-in-home)',
+                easing: 'swing'
+            });
+
+
+          /*----------- Google Map - with support of gmaps.js ----------------*/
+
+            function isMobile() {
+                return ('ontouchstart' in document.documentElement);
+            }
+
+            function init_gmap() {
+                if ( typeof google == 'undefined' ) return;
+                var options = {
+                    center: [-37.817331, 144.955652],
+                    zoom: 15,
+                    mapTypeControl: true,
+                    mapTypeControlOptions: {
+                        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+                    },
+                    navigationControl: true,
+                    scrollwheel: false,
+                    streetViewControl: true
+                }
+
+                if (isMobile()) {
+                    options.draggable = false;
+                }
+
+                $('#googleMaps').gmap3({
+                    map: {
+                        options: options
+                    },
+                    marker: {
+                        latLng: [-37.817331, 144.955652],
+                        options: { icon: 'images/mapicon.png' }
+                    }
+                });
+            }
+
+            init_gmap();
+        });
+
+    <!-- Include modernizr-2.8.3.min.js -->
+    <script src="../JS/modernizr-2.8.3.min.js"></script>
+    <!-- Include jquery.min.js plugin -->
+    <script src="../JS/jquery-2.1.0.min.js"></script>
+    <!-- Javascript Plugins  -->
+    <script src="../JS/plugins.js"></script>
+    <!-- Custom Functions  -->
+    <script src="../JS/functions.js"></script>
+    <script src="../JS/wow.min.js"></script>
+ </body>
 </html>
