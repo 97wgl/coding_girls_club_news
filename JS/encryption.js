@@ -104,3 +104,5 @@ function Encryption() {
         return string;
     }
 }
+
+// exports.Encryption=Encryption;
