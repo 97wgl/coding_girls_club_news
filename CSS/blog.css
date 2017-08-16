@@ -881,7 +881,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 .blog-sidebar .widget-title {
     color: #6f7678;
-    font-size: 42px;
+    font-size: 26px;
     font-weight: 700;
     text-transform: uppercase;
     text-align: center;
@@ -904,7 +904,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .recent-post li {
     display: block;
-    font-size: 15px;
+    font-size: 14px;
     padding-bottom: 19px;
     text-align: center;
 }
