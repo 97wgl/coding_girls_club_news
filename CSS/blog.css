@@ -1143,3 +1143,9 @@ footer a {
     height: 123px;
     margin-top: 6px;
 }
+.pagination a{
+    color: #209b60;!important;
+}
+.pagination .active{
+    background-color: #209b60;
+}
