@@ -12,21 +12,27 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
     <![endif]-->
 	<!-- Bootstrap  -->
-	<link href="../newsone/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../library/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<!-- icon fonts font Awesome -->
-	<link href="../newsone/assets/css/font-awesome.min.css" rel="stylesheet">
-    <link href="../newsone/assets/css/font-awesome.css" rel="stylesheet">
-	<!-- Import Custom Styles -->
-	<link href="../newsone/assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
 	<!-- Import Animate Styles -->
-	<link href="../newsone/assets/css/animate.min.css" rel="stylesheet">
+	<link href="../CSS/animate.min.css" rel="stylesheet">
 	<!-- Import Custom Responsive Styles -->
-	<link href="../newsone/assets/css/responsive.css" rel="stylesheet">
-    <link href="../newsone/assets/css/login.css" rel="stylesheet">
-    <link href="../newsone/assets/css/index.css" rel="stylesheet">
-    <link href="../newsone/assets/css/blog.css" rel="stylesheet">
-  	</head>
- <body class="header-fixed-top">
+	<link href="../CSS/responsive.css" rel="stylesheet">
+    <link href="../CSS/login.css" rel="stylesheet">
+    <link href="../CSS/calendar.css" rel="stylesheet">
+    <link href="../CSS/blog.css" rel="stylesheet">
+    <!-- Include modernizr-2.8.3.min.js -->
+    <script src="../JS/modernizr-2.8.3.min.js"></script>
+    <!-- Include jquery.min.js plugin -->
+    <script src="../JS/jquery-2.1.0.min.js"></script>
+    <!-- Javascript Plugins  -->
+    <script src="../JS/plugins.js"></script>
+    <!-- Custom Functions  -->
+    <script src="../JS/functions.js"></script>
+    <script src="../JS/wow.min.js"></script>
+</head>
+<body class="header-fixed-top">
     <!-- 点击Home返回的部分 -->
     <div id="page-top" class="page-top"></div><!-- /.page-top -->
     <!--顶部News/Blog图标-->
@@ -35,20 +41,20 @@
         <div class="row">
           <div class="col-sm-8 pull-left">
             <ul class="contact-list">
-              <li>
-                <a class="News" href="#">
+              <li class="contact-list-news">
+                <a class="News" href="index">
                   <span class="top-icon">
                     <i class="fa fa-newspaper-o" aria-hidden="true"></i><!--引用图标-->
                   </span>
-                  <a href="./index.html">News</a>
+                  <a href="index">News</a>
                 </a>
               </li>
-              <li>
+              <li class="contact-list-blog">
                 <a class="Blog" href="#">
                   <span class="top-icon">
                     <i class="fa fa-book" aria-hidden="true"></i>
                   </span>
-                  <a href="#">Blog</a>
+                  <a href="./blog-single.html">Blog</a>
                 </a>
               </li>
             </ul> <!--News,Blog-->
@@ -74,26 +80,23 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
                   <i class="fa fa-bars"></i>
                 </button>
-                <!--<div class="menu-logo">
-                  <a href="./"><img src="images/logo.png" alt="menu Logo"></a>
-                </div>&lt;!&ndash; /.menu-logo &ndash;&gt;-->
               </div>
               <nav id="menu" class="menu collapse navbar-collapse">
                 <ul id="headernavigation" class="menu-list nav navbar-nav">
-                  <li><a href="#page-top">Home</a></li>
-                  <li class="active"><a href="#blogs">Blog</a></li>
+                  <li><a href="#page-top">Blog</a></li>
+                  <li class="active"><a href="#blogs">Latest</a></li>
                   <li><a href="#footer">Contact</a></li>
                 </ul><!-- /.menu-list -->
               </nav><!-- /.menu-list -->
             </div>
 
             <div class="col-sm-5">
-              <div class="menu-search pull-right">
-                <form role="search" class="search-form" action="#" method="get">
-                  <input class="search-field" type="text" name="s" id="s" placeholder="Search Here" required>
-                  <button class="btn search-btn" type="submit"><i class="fa fa-search"></i></button>
-                </form><!-- /.search-form -->
-              </div><!-- /.menu-search -->
+              <form class="navbar-form navbar-right">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
             </div>
           </div><!-- /.row -->
         </div><!-- /.container -->
@@ -114,36 +117,17 @@
             <div class="col-sm-4">
               <div id="blog-sidebar" class="blog-sidebar widget-area" role="complementary">
                 <div class="sidebar-content">
-                  <aside class="widget widget wp_widget_tag_cloud clearfix">
-                    <h3 class="widget-title">
-                      Tag Clouds
-                    </h3><!-- /.widget-title -->
-                    <div class="tag-cloud-wrapper">
-                      <a href="#">design</a>
-                      <a href="#">html5</a>
-                      <a href="#">css3</a>
-                      <a href="#">web-design</a>
-                      <a href="#">illustrator</a>
-                      <a href="#">Photoshop</a>
-                      <a href="#">ui/ux</a>
-                      <a href="#">js</a>
-                      <a href="#">icons</a>
-                      <a href="#">article</a>
-                      <a href="#">web</a>
-                      <a href="#">inDesign</a>
-                    </div><!-- /.tag-cloud-wrapper -->
-                  </aside><!-- /.widget -->
                   <div class="whole-news-line" style="    margin-bottom: 34px;margin-top: -6px;border-bottom: 1px solid #d7dee0"></div>
                   <aside class="widget widget_recent_entries">
                     <h3 class="widget-title">
-                      Popular Posts
+                      Latest Blogs
                     </h3><!-- /.widget-title -->
                     <ul class="recent-post">
                       <li>
                         <div class="recent-post-details">
                           <a class="post-title" href="#">Standard Blog Post Title</a><br>
                           <div class="post-meta">
-                            <time datetime="2014-03-29">29 March</time>
+                            <time datetime="2017-08-16">16 August</time>
                             <a href="#">Anthony Doe</a>
                           </div><!-- /.post-meta -->
                         </div><!-- /.recent-post-details -->
@@ -152,7 +136,7 @@
                         <div class="recent-post-details">
                           <a class="post-title" href="#">Standard Blog Post Title</a><br>
                           <div class="post-meta">
-                            <time datetime="2014-03-29">29 March</time>
+                            <time datetime="2017-08-16">16 August</time>
                             <a href="#">Anthony Doe</a>
                           </div><!-- /.post-meta -->
                         </div><!-- /.recent-post-details -->
@@ -161,7 +145,25 @@
                         <div class="recent-post-details">
                           <a class="post-title" href="#">Standard Blog Post Title</a><br>
                           <div class="post-meta">
-                            <time datetime="2014-03-29">29 March</time>
+                            <time datetime="2017-08-16">16 August</time>
+                            <a href="#">Anthony Doe</a>
+                          </div><!-- /.post-meta -->
+                        </div><!-- /.recent-post-details -->
+                      </li>
+                      <li>
+                        <div class="recent-post-details">
+                          <a class="post-title" href="#">Standard Blog Post Title</a><br>
+                          <div class="post-meta">
+                            <time datetime="2017-08-16">16 August</time>
+                            <a href="#">Anthony Doe</a>
+                          </div><!-- /.post-meta -->
+                        </div><!-- /.recent-post-details -->
+                      </li>
+                      <li>
+                        <div class="recent-post-details">
+                          <a class="post-title" href="#">Standard Blog Post Title</a><br>
+                          <div class="post-meta">
+                            <time datetime="2017-08-16">16 August</time>
                             <a href="#">Anthony Doe</a>
                           </div><!-- /.post-meta -->
                         </div><!-- /.recent-post-details -->
@@ -326,7 +328,7 @@
                           <img src="../Images/services/1.jpg">
                         </div>
                         <div class="col-sm-10">
-                          <h3>Headline</h3>
+                          <h3>Headline<span>2017/8/15</span></h3>
                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
                         </div>
                       </div>
@@ -338,7 +340,7 @@
                           <img src="../Images/services/2.jpg">
                         </div>
                         <div class="col-sm-10">
-                          <h3>Headline</h3>
+                          <h3>Headline<span>2017/8/15</span></h3>
                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
                         </div>
                       </div>
@@ -350,7 +352,7 @@
                           <img src="../Images/services/3.jpg">
                         </div>
                         <div class="col-sm-10">
-                          <h3>Headline</h3>
+                          <h3>Headline<span>2017/8/15</span></h3>
                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
                         </div>
                       </div>
@@ -362,7 +364,7 @@
                           <img src="../Images/services/4.jpg">
                         </div>
                         <div class="col-sm-10">
-                          <h3>Headline</h3>
+                          <h3>Headline<span>2017/8/15</span></h3>
                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
                         </div>
                       </div>
@@ -371,7 +373,7 @@
                   <ul class="pagination">
                     <li><a href="#">&laquo;</a ></li>
                     <li class="active"><a href="#">1</a ></li>
-                    <li class="disabled"><a href="#">2</a ></li>
+                    <li><a href="#">2</a ></li>
                     <li><a href="#">3</a ></li>
                     <li><a href="#">4</a ></li>
                     <li><a href="#">5</a ></li>
@@ -382,7 +384,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div><!--主blog下半部分-->
       <!-- /.container -->
     </section><!-- /#main-content -->
     <!--Contact us板块-->
@@ -432,15 +434,6 @@
         <i class="fa fa-chevron-up"></i>
       </span>
     </div><!-- /#scroll-to-top -->
-    <!-- Include modernizr-2.8.3.min.js -->
-    <script src="../JS/modernizr-2.8.3.min.js"></script>
-    <!-- Include jquery.min.js plugin -->
-    <script src="../JS/jquery-2.1.0.min.js"></script>
-    <!-- Javascript Plugins  -->
-    <script src="../JS/plugins.js"></script>
-    <!-- Custom Functions  -->
-    <script src="../JS/functions.js"></script>
-    <script src="../JS/wow.min.js"></script>
- </body>
-</html>
 
+</body>
+</html>

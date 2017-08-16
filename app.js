@@ -23,35 +23,6 @@ app.all('*', function (req, res, next) {
     next();
 });
 
-
-//读取index.html文件
-app.get('/index', function (req, res) {
-    res.sendFile(__dirname + '/HTML/' + 'index.html');
-});
-
-//读取login.html文件
-app.get('/login', function (req, res) {
-    res.sendFile(__dirname + '/HTML/' + 'login.html');
-});
-
-//读取manage.html文件
-app.get('/admin', function (req, res) {
-    res.sendFile(__dirname + '/HTML/' + 'manage.html');
-});
-
-app.get('/list.html', function (req, res) {
-    res.sendFile(__dirname + '/HTML/' + 'list.html');
-});
-
-app.get('/article_detail.html', function (req, res) {
-    res.sendFile(__dirname + '/HTML/' + 'article_detail.html');
-});
-
-//读取reset-password.html文件
-app.get('/reset-password', function (req, res) {
-    res.sendFile(__dirname + '/HTML/' + 'reset-password.html');
-});
-
 //数据录入，测试案例
 app.post('/test', function (req, res) {
 
@@ -74,22 +45,48 @@ app.post('/test', function (req, res) {
     });
 });
 
-//首页头条新闻
-app.get("/news_list", function (req, res) {
 
-    const sql_str = "select * from news where isHeadline='1' order by news_time desc limit 0,3";
-    //查询当日的头条新闻
-    db.all(sql_str, function (err, result) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(result);
-            res.send(result);
-        }
-    });
+/*----------------html文件读取-------------------*/
+//读取index.html文件
+app.get('/index', function (req, res) {
+    res.sendFile(__dirname + '/HTML/' + 'index.html');
 });
 
-//登录验证，判断邮箱和密码是否正确
+//读取login.html文件
+app.get('/login', function (req, res) {
+    res.sendFile(__dirname + '/HTML/' + 'login.html');
+});
+
+//读取blog-single.html文件
+app.get('/blog-single', function (req, res) {
+    res.sendFile(__dirname + '/HTML/' + 'blog-single.html');
+});
+
+//读取manage.html文件
+app.get('/manage', function (req, res) {
+    res.sendFile(__dirname + '/HTML/' + 'manage.html');
+});
+
+//读取list.html文件
+app.get('/list.html', function (req, res) {
+    res.sendFile(__dirname + '/HTML/' + 'list.html');
+});
+
+//读取article_detail.html文件
+app.get('/article_detail.html', function (req, res) {
+    res.sendFile(__dirname + '/HTML/' + 'article_detail.html');
+});
+
+//读取reset-password.html文件
+app.get('/reset-password', function (req, res) {
+    res.sendFile(__dirname + '/HTML/' + 'reset-password.html');
+});
+
+
+
+
+/*--------------------后台API-------------------*/
+//后台管理员登录验证，判断邮箱和密码是否正确
 app.post("/login", function (req, res) {
 
     //获取登录输入框的值
@@ -97,11 +94,11 @@ app.post("/login", function (req, res) {
         txt_email: req.body.user_email,
         txt_password: req.body.user_password
     };
-
     const sql_str = "select * from Manager where manager_email = '" + manageLoginInfo.txt_email + "' and manager_pwd = '" + manageLoginInfo.txt_password + "'";
 
     db.all(sql_str, function (err, result) {
-        if(result.length !== 0) {
+        if(result.length) {
+
             res.send(true);
         } else {
             res.send(false);
@@ -109,7 +106,6 @@ app.post("/login", function (req, res) {
     });
 });
 
-//后台分页展示信息
 app.get("/all_news", function (req, res) {
 
     const req_page = req.query.page;
@@ -125,7 +121,7 @@ app.get("/all_news", function (req, res) {
     });
 });
 
-//后台分页展示信息
+//后台分页展示信息blogs
 app.get("/all_blog", function (req, res) {
 
     const req_page = req.query.page;
@@ -141,41 +137,7 @@ app.get("/all_blog", function (req, res) {
     });
 });
 
-//前台分页展示新闻信息
-app.get("/all_news_pading", function (req, res) {
-
-    const req_page = req.query.page;
-    const sql_str = "select * from news order by news_time desc limit ('"+req_page+"'-1)*4,4";
-            //根据前台传过来的page,从数据库动态查询相应信息
-            db.all(sql_str, function (err, result) {
-                if (err) {
-            console.log("读取数据失败！" + err);
-        } else {
-            console.log(result);
-            res.send(result);
-        }
-    });
-});
-
-//按键入关键字进行模糊搜索
-app.get("/search", function (req, res) {
-
-    //searchInfo为搜索框的内容
-    const searchInfo = req.query.searchInfo;
-
-    const sql_str = "select * from news where news_title like '%" + searchInfo + "%' or news_content like '%" + searchInfo + "%' order by news_time desc";
-    //按关键字进行模糊搜索，可以在标题和内容中匹配
-    db.all(sql_str, function (err, result) {
-        if (err) {
-            console.log("读取数据失败！" + err);
-        } else {
-            console.log(result);
-            res.send(result);
-        }
-    });
-});
-
-//查询新闻
+//后台查询新闻
 app.get("/search_news", function (req, res) {
 
     const searchKeyWords = req.query.keywords;
@@ -192,13 +154,13 @@ app.get("/search_news", function (req, res) {
     });
 });
 
-//查询博客
+//后台查询博客
 app.get("/search_blog", function (req, res) {
 
     //searchInfo为搜索框的内容
     const searchKeyWords = req.query.keywords;
 
-    const sql_str = "select * from blog where blogs_title like '%" + searchKeyWords + "%' or news_content like '%" + searchKeyWords + "%' order by news_time desc";
+    const sql_str = "select * from blogs where blog_title like '%" + searchKeyWords + "%' or blog_content like '%" + searchKeyWords + "%' order by blog_time desc";
     //按关键字进行模糊搜索，可以在标题和内容中匹配
     db.all(sql_str, function (err, result) {
         if (err) {
@@ -210,41 +172,7 @@ app.get("/search_blog", function (req, res) {
     });
 });
 
-
-
-//获取新闻的总条数
-app.get('/all_news_count', function (req, res) {
-
-    const sql_str = "select * from news_count";
-
-    db.all(sql_str, function (err, result) {
-
-        if (err) {
-            console.log("读取数据失败！");
-        } else {
-            console.log("新闻数量为:" + result[0].all_news_count);
-            res.send(result);
-        }
-    });
-});
-
-//获取博客的总条数
-app.get('/all_blog_count', function (req, res) {
-
-    const sql_str = "select * from blog_count";
-
-    db.all(sql_str, function (err, result) {
-        if (err) {
-            console.log("读取数据失败！");
-        } else {
-            console.log("博客数量为:" + result[0].all_blog_count);
-            res.send(result);
-        }
-    });
-
-});
-
-//邮箱验证
+//后台找回密码邮箱验证
 app.post('/comfirm_email',function (req, res) {
 
     const input_email = req.body.forget_email;
@@ -261,23 +189,7 @@ app.post('/comfirm_email',function (req, res) {
     });
 });
 
-//根据时间筛选内容
-app.get('/time_search',function (req,res) {
-
-    const search_time = req.query.searchDate;
-    const sqlStr = "select * from news where news_time like '"+search_time+"%'";
-
-    db.all(sqlStr, function (err,result) {
-       if(!err){
-           res.send(result);
-       } else{
-           res.send(err);
-       }
-    });
-
-});
-
-//更改密码
+//后台管理员更改密码
 app.put('/modify_password', function (req, res) {
 
     const new_email = req.body.input_email;
@@ -289,26 +201,6 @@ app.put('/modify_password', function (req, res) {
             res.send(true);
         }
     });
-});
-
-//运行在3000端口
-app.listen(3000, () => {
-    console.log('running on port 3000...');
-});
-
-//根据id获取详细新闻
-app.get('/detail',function (req,res) {
-
-    const sqlStr = `select * from News where id = ${req.query.newsid}`;
-
-    db.all(sqlStr, function (err, result) {
-        if(err){
-            console.log("读取数据失败！");
-        } else {
-            console.log("新闻为:"+result);
-            res.send(result);
-        }
-    })
 });
 
 //后台添加新闻
@@ -355,7 +247,7 @@ app.post('/addblog', function (req,res) {
     });
 });
 
-//编辑新闻
+//后台编辑新闻
 app.put('/edit_news',function (req, res) {
 
     const editInfo = {
@@ -377,7 +269,7 @@ app.put('/edit_news',function (req, res) {
     });
 });
 
-//编辑博客
+//后台编辑博客
 app.put('/edit_blog',function (req, res) {
 
     const editInfo = {
@@ -399,7 +291,7 @@ app.put('/edit_blog',function (req, res) {
     });
 });
 
-//删除新闻或博客
+//后台删除新闻或博客
 app.delete('/delete' ,function (req,res) {
 
     const deleteId = req.body.delId;
@@ -407,11 +299,11 @@ app.delete('/delete' ,function (req,res) {
 
     if(deleteType === "news"){
         db.run("delete from  news where id = '"+deleteId+"'",function (err) {
-           if(!err){
-               res.send(true);
-           } else {
-               res.send(false);
-           }
+            if(!err){
+                res.send(true);
+            } else {
+                res.send(false);
+            }
         });
     } else {
         db.run("delete from blogs where id = '"+deleteId+"'",function (err) {
@@ -423,6 +315,162 @@ app.delete('/delete' ,function (req,res) {
         })
     }
 });
+
+
+/*--------------------前台API------------------*/
+//前台页面加载时分页展示新闻信息
+app.get("/all_news_pading", function (req, res) {
+
+    const req_page = req.query.page;
+    const sql_str = "select * from news order by news_time desc limit ('"+req_page+"'-1)*4,4";
+            //根据前台传过来的page,从数据库动态查询相应信息
+            db.all(sql_str, function (err, result) {
+                if (err) {
+            console.log("读取数据失败！" + err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+//前台页面加载时分页展示博客信息
+app.get("/all_blogs_pading", function (req, res) {
+
+    const req_page = req.query.page;
+    const sql_str = "select * from blogs order by blog_time desc limit ('"+req_page+"'-1)*4,4";
+            //根据前台传过来的page,从数据库动态查询相应信息
+            db.all(sql_str, function (err, result) {
+                if (err) {
+            console.log("读取数据失败！" + err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+//前台最新5条博客
+app.get("/latest_blog",function (req, res) {
+
+    const sqlStr = "select * from blogs order by blog_time desc limit 0,5";
+
+    db.all(sqlStr,function (err,result) {
+        if(!err){
+            res.send(result);
+        } else {
+            res.send(err);
+        }
+    })
+});
+
+
+//按键入关键字进行模糊搜索
+app.get("/search", function (req, res) {
+
+    //searchInfo为搜索框的内容
+    const searchInfo = req.query.searchInfo;
+    const searchPage = req.query.searchPage;
+
+    const sql_str = "select * from news where news_title like '%" + searchInfo + "%' or news_content like '%" + searchInfo + "%' order by news_time desc limit ('"+searchPage+"'-1)*4,4";
+    //按关键字进行模糊搜索，可以在标题和内容中匹配
+    db.all(sql_str, function (err, result) {
+        if (err) {
+            console.log("读取数据失败！" + err);
+        } else {
+            console.log(result);
+            res.send(result);
+        }
+    });
+});
+
+//前台根据时间筛选内容
+app.get('/time_search',function (req,res) {
+
+    const search_time = req.query.searchDate;
+    const page = req.query.searchPage;
+    const sqlStr = "select * from news where news_time like '"+search_time+"%' order by news_time desc limit ('"+page+"'-1)*4,4";
+
+    db.all(sqlStr, function (err,result) {
+        if(!err){
+            res.send(result);
+        } else{
+            res.send(err);
+        }
+    });
+
+});
+
+//前台根据id获取详细新闻
+app.get('/detail',function (req,res) {
+
+    const sqlStr = `select * from News where id = ${req.query.newsid}`;
+
+    db.all(sqlStr, function (err, result) {
+        if(err){
+            console.log("读取数据失败！");
+        } else {
+            console.log("新闻为:"+result);
+            res.send(result);
+        }
+    })
+});
+
+//前台首页头条新闻
+app.get("/news_list", function (req, res) {
+
+    const sql_str = "select * from news where isHeadline='1' order by news_time desc limit 0,3";
+    //查询当日的头条新闻
+    db.all(sql_str, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(result);
+            res.send(result);
+        }
+    });
+});
+
+
+/*-----------------------前后台---------------------*/
+//获取新闻的总条数（前后台共用）
+app.get('/all_news_count', function (req, res) {
+
+    const sql_str = "select * from news_count";
+
+    db.all(sql_str, function (err, result) {
+
+        if (err) {
+            console.log("读取数据失败！");
+        } else {
+            console.log("新闻数量为:" + result[0].all_news_count);
+            res.send(result);
+        }
+    });
+});
+
+//获取博客的总条数（前后台共用）
+app.get('/all_blog_count', function (req, res) {
+
+    const sql_str = "select * from blog_count";
+
+    db.all(sql_str, function (err, result) {
+        if (err) {
+            console.log("读取数据失败！");
+        } else {
+            console.log("博客数量为:" + result[0].all_blog_count);
+            res.send(result);
+        }
+    });
+
+});
+
+
+//运行在3000端口
+app.listen(3000, () => {
+    console.log('running on port 3000...');
+});
+
+
+
 
 
 
