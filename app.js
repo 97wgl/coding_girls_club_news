@@ -328,11 +328,40 @@ app.get("/all_news_pading", function (req, res) {
                 if (err) {
             console.log("读取数据失败！" + err);
         } else {
-            console.log(result);
             res.send(result);
         }
     });
 });
+
+//前台页面加载时分页展示博客信息
+app.get("/all_blogs_pading", function (req, res) {
+
+    const req_page = req.query.page;
+    const sql_str = "select * from blogs order by blog_time desc limit ('"+req_page+"'-1)*4,4";
+            //根据前台传过来的page,从数据库动态查询相应信息
+            db.all(sql_str, function (err, result) {
+                if (err) {
+            console.log("读取数据失败！" + err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+//前台最新5条博客
+app.get("/latest_blog",function (req, res) {
+
+    const sqlStr = "select * from blogs order by blog_time desc limit 0,5";
+
+    db.all(sqlStr,function (err,result) {
+        if(!err){
+            res.send(result);
+        } else {
+            res.send(err);
+        }
+    })
+});
+
 
 //按键入关键字进行模糊搜索
 app.get("/search", function (req, res) {
