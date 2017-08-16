@@ -57,13 +57,18 @@ app.get('/login', function (req, res) {
     res.sendFile(__dirname + '/HTML/' + 'login.html');
 });
 
+//读取forget_pwd.html文件
+app.get('/forget_pwd', function (req, res) {
+    res.sendFile(__dirname + '/HTML/' + 'forget_pwd.html');
+});
+
 //读取blog-single.html文件
 app.get('/blog-single', function (req, res) {
     res.sendFile(__dirname + '/HTML/' + 'blog-single.html');
 });
 
 //读取manage.html文件
-app.get('/manage', function (req, res) {
+app.get('/admin', function (req, res) {
     res.sendFile(__dirname + '/HTML/' + 'manage.html');
 });
 
@@ -79,7 +84,7 @@ app.get('/article_detail.html', function (req, res) {
 
 //读取reset-password.html文件
 app.get('/reset-password', function (req, res) {
-    res.sendFile(__dirname + '/HTML/' + 'reset-password.html');
+    res.sendFile(__dirname + '/HTML/' + 'reset_pwd.html');
 });
 
 

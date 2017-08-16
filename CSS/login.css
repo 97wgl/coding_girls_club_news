@@ -77,7 +77,6 @@ body a:link{
 .a-inline-block{
     display: inline-block;
 }
-
 .footer{
     background-color: #2C2C2A;
     color: #eee;
@@ -107,4 +106,7 @@ body a:link{
     background-color: #151515;
     color: #bbb;
     text-align: center;
+}
+#forgetPass{
+    cursor: pointer;
 }
