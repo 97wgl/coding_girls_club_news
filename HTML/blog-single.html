@@ -401,11 +401,21 @@
         <i class="fa fa-chevron-up"></i>
       </span>
     </div><!-- /#scroll-to-top -->
+
+    <!-- Include modernizr-2.8.3.min.js -->
+    <script src="../JS/modernizr-2.8.3.min.js"></script>
+    <!-- Include jquery.min.js plugin -->
+    <script src="../JS/jquery-2.1.0.min.js"></script>
+    <!-- Javascript Plugins  -->
+    <script src="../JS/plugins.js"></script>
+    <!-- Custom Functions  -->
+    <script src="../JS/functions.js"></script>
+    <script src="../JS/wow.min.js"></script>
     <script>
 
         $(document).ready(function() {
 
-          /* -------- One page Navigation ----------*/
+            /* -------- One page Navigation ----------*/
             $('#main-menu #menu').onePageNav({
                 currentClass: 'active',
                 changeHash: false,
@@ -417,7 +427,7 @@
             });
 
 
-          /*----------- Google Map - with support of gmaps.js ----------------*/
+            /*----------- Google Map - with support of gmaps.js ----------------*/
 
             function isMobile() {
                 return ('ontouchstart' in document.documentElement);
@@ -435,7 +445,7 @@
                     navigationControl: true,
                     scrollwheel: false,
                     streetViewControl: true
-                }
+                };
 
                 if (isMobile()) {
                     options.draggable = false;
@@ -454,15 +464,6 @@
 
             init_gmap();
         });
-
-    <!-- Include modernizr-2.8.3.min.js -->
-    <script src="../JS/modernizr-2.8.3.min.js"></script>
-    <!-- Include jquery.min.js plugin -->
-    <script src="../JS/jquery-2.1.0.min.js"></script>
-    <!-- Javascript Plugins  -->
-    <script src="../JS/plugins.js"></script>
-    <!-- Custom Functions  -->
-    <script src="../JS/functions.js"></script>
-    <script src="../JS/wow.min.js"></script>
+    </script>
  </body>
 </html>
