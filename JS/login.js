@@ -11,7 +11,7 @@ $(document).ready(function () {
     $("#btn_login").click(function () {
         $.post('/login', function (res) {
             if(res) {
-                alert(res);
+
                 if ($("#ck_rmbUser").attr("checked")) {
                     let user_email = $("#user_email").val();
                     let user_password = encry_password.encode($("#user_password").val());
@@ -24,11 +24,14 @@ $(document).ready(function () {
                     $.cookie("user_email", "", {expires: -1});
                     $.cookie("user_password", "", {expires: -1});
                 }
-                location.href='admin';
-            } else {
-                alert("邮箱名或密码错误！");
+                location.href = '/manage';
             }
+            else {
+                alert(res+"邮箱或密码有误！");
+            }
+
         });
+
     });
     
     $("#forgetPass").click(function () {
