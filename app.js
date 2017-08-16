@@ -2,6 +2,9 @@ const sqlite3 = require('sqlite3');
 const express = require('express');
 const bodyparser = require('body-parser');
 const session = require('express-session');
+const nodemailer = require('nodemailer');
+//const encryptionModule = require('/JS/encryption');
+
 
 const app = express();
 const db = new sqlite3.Database(__dirname + '/Database/News.db');
@@ -178,13 +181,14 @@ app.get("/search_blog", function (req, res) {
 });
 
 //后台找回密码邮箱验证
-app.post('/comfirm_email',function (req, res) {
+app.post('/confirm_email',function (req, res) {
 
     const input_email = req.body.forget_email;
     const sql_str = "select * from manager where manager_email = '"+input_email+"'";
 
     db.all(sql_str, function (err ,result) {
-        if(result.length === 0){
+        if(result.length !== 0){
+            resetPwdEmail(input_email);
             console.log(result);
             res.send(true);
         } else {
@@ -468,6 +472,44 @@ app.get('/all_blog_count', function (req, res) {
 
 });
 
+function resetPwdEmail(sendEmail) {
+    // let encrypty = new encryptionModule.Encryption();
+    let transporter = nodemailer.createTransport({
+        service: 'qq',
+        secureConnection: true,
+        auth: {
+            user: '1060756423@qq.com',
+            pass: 'ofeldirqmgbvbebe'
+            //将邮箱授权码加密（授权码可进入邮箱用户中心获取）
+        }
+    });
+    let mailOptions = {
+        from: '1060756423@qq.com', // 发送者
+        to: sendEmail, // 接受者,可以同时发送多个,以逗号隔开,'yyyy@qq.com,xxxx@qq.com',
+        subject: 'coding girls club重置密码', // 标题
+        html: `<h2>Comfirm reset password:</h2>
+        <p>亲爱的${sendEmail}，您在${(new Date()).toString().substring(3,25)}提交了密码重置请求，请点击下面的链接重置密码;若此请求非您本人操作，请忽略此消息.</p>
+          <div style="text-align: center; margin: 20px">   
+         <span style="background-color: #4785af; color:#fff; border-radius: 5px; padding: 16px;">
+         <a href="http://127.0.0.1:3000/reset-password?email=${sendEmail}" style="color: #fff; text-decoration: none">
+            点此重置密码
+         </a>
+         </span>
+        </div>`
+    };
+
+
+    transporter.sendMail(mailOptions, function (err, info) {
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            console.log('Message %s sent: %s', info.messageId, info.response);
+        }
+
+
+    });
+}
 
 //运行在3000端口
 app.listen(3000, () => {
