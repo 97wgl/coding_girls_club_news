@@ -1171,3 +1171,36 @@ footer a {
     color: #2b2b2b;
     margin-bottom: 10px;
 }
+
+/*contact us 【wrc】*/
+.footer{
+    background-color: #2C2C2A;
+    color: #eee;
+    text-align: center;
+    padding: 30px 0 0 0;
+}
+.margin-btm-30 {
+    margin-bottom: 30px;
+}
+.footer p a {
+    color: #eee;
+}
+.footer p a:hover{
+    color: white;
+}
+.footer .container .footer-social li a {
+    font-size: 30px;
+    color: rgba(255,255,255,0.5);
+    display: block;
+    margin: 3px 5px;
+}
+.footer .container .footer-social li a:hover {
+    color: rgba(255,255,255,0.9);
+}
+.footer-bottom{
+    padding: 15px 0;
+    background-color: #151515;
+    color: #bbb;
+    text-align: center;
+}
+/*contact us 【wrc】*/
