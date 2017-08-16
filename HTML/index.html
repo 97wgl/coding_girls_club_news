@@ -6,8 +6,8 @@
 	<meta name="description" content="Coding Girls Club" >
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="../library/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../library/font-awesome-4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="../CSS/magnific-popup.css">
     <link rel="stylesheet" href="../CSS/calendar.css">
 	<link href="../CSS/index.css" rel="stylesheet">
@@ -70,18 +70,20 @@
                     <ul id="headernavigation" class="menu-list nav navbar-nav">
                         <li class="active"><a href="#page-top">News</a></li>
                         <li><a href="#portfolio">Latest</a></li>
-                        <li><a href="#services">Today</a></li>
-                        <li><a href="#footer">Contact</a></li>
+                        <li><a href="#services" id="todayLocation">Today</a></li>
+                        <li ><a href="#footer">Contact</a></li>
                     </ul><!-- /.menu-list菜单列表-->
                 </nav><!-- /.menu-list -->
             </div>
             <div class="col-sm-5">
-                <form class="navbar-form navbar-right" id="searchForm">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search" id="searchText">
+                <div id="searchGroup" class="text-right">
+                    <div id="searchInput">
+                        <input type="text" placeholder="Search" id="searchText">
                     </div>
-                        <button type="submit" class="btn btn-default" id="searchSubmit">Submit</button>
-                </form>
+                    <div id="searchIcon">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </div>
+                </div>
             </div>
         </div><!-- /.row -->
     </div><!-- /.container -->

@@ -13,6 +13,8 @@ $(document).ready(function(){
 
     let page = parseInt((count+4)/4);
     displaynews(1);
+
+    //分页
     $("#pagination").pagination({
         currentPage: 1,
         totalPage: page,
@@ -24,10 +26,12 @@ $(document).ready(function(){
         nextPageText: "下一页",
         callback: function(current) {
           displaynews(current);
+          $('#todayLocation').trigger('click');
         }
     });
-    //分页
-    $('#searchSubmit').click(()=>{
+
+    //搜索按钮事件
+    $('#searchIcon').click(()=>{
         $('#pagination').html('');
         $('#simplecontent').html('');
         $.get(`/search_news?keywords=${$('#searchText').val()}`,(news)=>{
@@ -51,6 +55,7 @@ $(document).ready(function(){
     })
 });
 
+//阻止页面刷新
 $().ready(()=>{
     $('#searchForm').on('submit',(event)=>{
         event.preventDefault();

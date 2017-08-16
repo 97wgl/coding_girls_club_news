@@ -1290,3 +1290,21 @@ footer a {
 #simplecontent h3 {
 	color: #2b2b2b;
 }
+
+#searchInput{
+	display: inline-block;
+	width: 90%;
+}
+#searchInput input{
+
+}
+#searchIcon{
+	display:inline-block ;
+	font-size: 23px;
+	color:#209b60 ;
+}
+
+#searchGroup{
+	margin-top: 3.5%;
+}
+
