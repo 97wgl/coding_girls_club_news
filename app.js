@@ -57,13 +57,18 @@ app.get('/login', function (req, res) {
     res.sendFile(__dirname + '/HTML/' + 'login.html');
 });
 
+//读取forget_pwd.html文件
+app.get('/forget_pwd', function (req, res) {
+    res.sendFile(__dirname + '/HTML/' + 'forget_pwd.html');
+});
+
 //读取blog-single.html文件
 app.get('/blog-single', function (req, res) {
     res.sendFile(__dirname + '/HTML/' + 'blog-single.html');
 });
 
 //读取manage.html文件
-app.get('/manage', function (req, res) {
+app.get('/admin', function (req, res) {
     res.sendFile(__dirname + '/HTML/' + 'manage.html');
 });
 
@@ -79,7 +84,7 @@ app.get('/article_detail.html', function (req, res) {
 
 //读取reset-password.html文件
 app.get('/reset-password', function (req, res) {
-    res.sendFile(__dirname + '/HTML/' + 'reset-password.html');
+    res.sendFile(__dirname + '/HTML/' + 'reset_pwd.html');
 });
 
 
@@ -94,12 +99,11 @@ app.post("/login", function (req, res) {
         txt_email: req.body.user_email,
         txt_password: req.body.user_password
     };
-
     const sql_str = "select * from Manager where manager_email = '" + manageLoginInfo.txt_email + "' and manager_pwd = '" + manageLoginInfo.txt_password + "'";
 
     db.all(sql_str, function (err, result) {
-        if(result.length !== 0) {
-            console.log(result);
+        if(result.length) {
+
             res.send(true);
         } else {
             res.send(false);
@@ -107,7 +111,6 @@ app.post("/login", function (req, res) {
     });
 });
 
-//后台分页展示信息news
 app.get("/all_news", function (req, res) {
 
     const req_page = req.query.page;
@@ -330,11 +333,40 @@ app.get("/all_news_pading", function (req, res) {
                 if (err) {
             console.log("读取数据失败！" + err);
         } else {
-            console.log(result);
             res.send(result);
         }
     });
 });
+
+//前台页面加载时分页展示博客信息
+app.get("/all_blogs_pading", function (req, res) {
+
+    const req_page = req.query.page;
+    const sql_str = "select * from blogs order by blog_time desc limit ('"+req_page+"'-1)*4,4";
+            //根据前台传过来的page,从数据库动态查询相应信息
+            db.all(sql_str, function (err, result) {
+                if (err) {
+            console.log("读取数据失败！" + err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+//前台最新5条博客
+app.get("/latest_blog",function (req, res) {
+
+    const sqlStr = "select * from blogs order by blog_time desc limit 0,5";
+
+    db.all(sqlStr,function (err,result) {
+        if(!err){
+            res.send(result);
+        } else {
+            res.send(err);
+        }
+    })
+});
+
 
 //按键入关键字进行模糊搜索
 app.get("/search", function (req, res) {
