@@ -31,6 +31,7 @@ $(document).ready(function () {
                     location.reload();
                 }
         });
+
     });
   
     $("#forgetPass").click(function () {
