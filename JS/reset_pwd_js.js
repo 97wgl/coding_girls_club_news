@@ -12,6 +12,6 @@ $("#reset_pw_btn").click(function () {
         $('#user_cfm_pw').val('');
     }
     else{
-        resetPwdEmail(user_cfm_pw);
+        $.post()
     }
 });
