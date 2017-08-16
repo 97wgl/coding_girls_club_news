@@ -199,15 +199,19 @@ app.post('/confirm_email',function (req, res) {
 });
 
 //后台管理员更改密码
-app.put('/modify_password', function (req, res) {
+app.put('/reset_pwd', function (req, res) {
 
-    const new_email = req.body.input_email;
-    const sql_str = "update manager set manager where manager_eamil = '" + new_email + "'";
+    const new_email = req.body.user_email;
+    const new_pwd = req.body.user_password;
+    const sql_str = "update manager set manager_pwd = '"+new_pwd+"' where manager_email = '" + new_email + "'";
 
     db.run(sql_str, function (err) {
-        if (!err) {
-            console.log("修改成功！");
-            res.send(true);
+        if (err) {
+            console.log("密码修改失败！");
+        }
+        else {
+            console.log("密码修改成功！");
+            res.status(200).send(true);
         }
     });
 });
@@ -490,7 +494,7 @@ function resetPwdEmail(sendEmail) {
         html: `<h2>Comfirm reset password:</h2>
         <p>亲爱的${sendEmail}，您在${(new Date()).toString().substring(3,25)}提交了密码重置请求，请点击下面的链接重置密码;若此请求非您本人操作，请忽略此消息.</p>
           <div style="text-align: center; margin: 20px">   
-         <span style="background-color: #4785af; color:#fff; border-radius: 5px; padding: 16px;">
+         <span style="background-color: #4785af; color:#fff; border-radius: 5px; padding: 10px 16px;">
          <a href="http://127.0.0.1:3000/reset-password?email=${sendEmail}" style="color: #fff; text-decoration: none">
             点此重置密码
          </a>

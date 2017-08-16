@@ -26,8 +26,11 @@ $("#btn_login").click(function () {
                 }
                 location.href='admin';
             } else {
-                alert("邮箱名或密码错误！");
-                location.reload();
+                layer.alert('邮箱名或密码错误！', {
+                    icon: 0,
+                    title: '抱歉！'
+                });
+                $("#user_password").val("");
             }
     });
 });
