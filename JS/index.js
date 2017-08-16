@@ -1,29 +1,16 @@
 $(document).ready(function(){
-    // 轮播图区域
-    $.get('/news_list',(headlineNews)=>{
-        $('#firstImg').find('img').attr('src',`${headlineNews[0].news_image}`);
-        $('#secondImg').find('img').attr('src',`${headlineNews[1].news_image}`);
-        $('#thirdImg').find('img').attr('src',`${headlineNews[2].news_image}`);
-        let firstText = $('#top-news-firstText');
-        firstText.find('span').html(headlineNews[0].news_title);
-        firstText.find('p').html(headlineNews[0].news_content);
-        let secondText = $('#top-news-secondText');
-        secondText.find('span').html(headlineNews[1].news_title);
-        secondText.find('p').html(headlineNews[1].news_content);
-        let thirdText = $('#top-news-thirdText');
-        thirdText.find('span').html(headlineNews[2].news_title);
-        thirdText.find('p').html(headlineNews[2].news_content);
+    
+    newsListInfo();
+    let count = 0;
+    $.ajax({
+        type:'GET',
+        url:'/all_news_count',
+        async:false,
+        success:function (data) {
+            count = data[0].all_news_count;
+        }
     });
 
-   let count = 0;
-   $.ajax({
-       type:'GET',
-       url:'/all_news_count',
-       async:false,
-       success:function (data) {
-           count = data[0].all_news_count;
-       }
-   });
     let page = parseInt((count+4)/4);
     displaynews(1);
     $("#pagination").pagination({
@@ -97,6 +84,32 @@ $().ready(()=>{
     })
 });
 
+// 轮播图以及旁边新闻列表
+function newsListInfo() {
+    $.get('/news_list',(headlineNews)=> {
+        // 插入轮播图的图片
+        $('#firstImg').find('img').attr('src', `${headlineNews[0].news_image}`);
+        $('#secondImg').find('img').attr('src', `${headlineNews[1].news_image}`);
+        $('#thirdImg').find('img').attr('src', `${headlineNews[2].news_image}`);
+
+        // 轮播图旁边新闻
+        for(let i = 0; i < headlineNews.length; i++) {
+            let span = $('<span></span>');
+            let p = $('<p></p>');
+            let a = $('<a></a>');
+            span.html(headlineNews[i].news_title);
+            p.html(headlineNews[i].news_content);
+            a.attr('href', `http://localhost:3000/HTML/detail.html?id=${headlineNews[i].id}`);
+            a.append(span);
+            a.append(p);
+            let idArr = ['#top-news-firstText','#top-news-secondText','#top-news-thirdText'];
+            $(idArr[i]).append(a);
+        }
+    });
+}
+
+
+// 主要的新闻部分
 function displaynews(index) {
     $('#simplecontent').html('');
     $.get(`/all_news_pading?page=${index}`,(nesws)=>{

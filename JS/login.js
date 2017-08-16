@@ -10,30 +10,47 @@ $(document).ready(function () {
 
     $("#btn_login").click(function () {
         $.post('/login', function (res) {
+            if(res) {
 
                 if ($("#ck_rmbUser").attr("checked")) {
                     let user_email = $("#user_email").val();
                     let user_password = encry_password.encode($("#user_password").val());
-                    $.cookie("rmbUser", "true", { expires: 7 }); //存储一个带7天期限的cookie
-                    $.cookie("user_email", user_email, { expires: 7 });
-                    $.cookie("user_password", user_password, { expires: 7 });
+                    $.cookie("rmbUser", "true", {expires: 7}); //存储一个带7天期限的cookie
+                    $.cookie("user_email", user_email, {expires: 7});
+                    $.cookie("user_password", user_password, {expires: 7});
                 }
                 else {
-                    $.cookie("rmbUser", "false", { expire: -1 });
-                    $.cookie("user_email", "", { expires: -1 });
-                    $.cookie("user_password", "", { expires: -1 });
+                    $.cookie("rmbUser", "false", {expire: -1});
+                    $.cookie("user_email", "", {expires: -1});
+                    $.cookie("user_password", "", {expires: -1});
                 }
-
-                location.href='admin';
+                location.href = '/manage';
+            }
+            else {
+                alert(res+"邮箱或密码有误！");
+            }
 
         });
+
     });
+  
+    $("#forgetPass").click(function () {
+        replaceForm();
+        history.pushState(null,null,'forget_pwd');
+    });
+  
+    $("#commit_forget_pass").click(function () {
+        $.post('/comfirm_email', function (res) {
+            // if(res){
+                resetPwdEmail($("#forget_email").val());
+            // } else {
+            //     alert("您输入的邮箱不存在！");
+            // }
+        })
+    })
 });
 
-$("#forgetPass").click(function () {
-    replaceForm();
-    history.pushState(null,null,'forget_pwd');
-});
+
 // $("#reset_pw_btn").click(function () {
 //     confirmPw();
 // });
@@ -55,6 +72,8 @@ function replaceForm() {
     forgetForm.innerHTML = newForgetForm;
 }
 
+
+//修改密码和密码确认
 document.addEventListener("DOMContentLoaded",function () {
     document.getElementById('pw_form').addEventListener('submit',function (event) {
         event.preventDefault();

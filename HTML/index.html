@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="../CSS/magnific-popup.css">
+    <link rel="stylesheet" href="../CSS/calendar.css">
 	<link href="../CSS/index.css" rel="stylesheet">
 	<link href="../CSS/animate.min.css" rel="stylesheet">
 	<link href="../CSS/owl.carousel.css" rel="stylesheet">
 	<link href="../CSS/responsive.css" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/calendar.css">
     <link rel="stylesheet" href="../library/jQueryPagination/css/jquery.pagination.css">
 
 </head>
@@ -25,20 +25,20 @@
         <div class="row">
             <div class="col-sm-8 pull-left">
                 <ul class="contact-list">
-                    <li>
+                    <li class="contact-list-news">
                         <a class="News" href="#">
-  									<span class="top-icon">
-                                       <i class="fa fa-newspaper-o" aria-hidden="true"></i><!--引用图标-->
-                                    </span>
+                            <span class="top-icon">
+                                <i class="fa fa-newspaper-o" aria-hidden="true"></i><!--引用图标-->
+                            </span>
                             <a href="#">News</a>
                         </a>
                     </li>
-                    <li>
-                        <a class="Blog" href="#">
+                    <li class="contact-list-blog">
+                        <a class="Blog" href="blog-single">
   									<span class="top-icon">
                                         <i class="fa fa-book" aria-hidden="true"></i>
                                     </span>
-                            <a href="blog-single.html">Blog</a>
+                            <a href="blog-single">Blog</a>
                         </a>
                     </li>
                 </ul> <!--News,Blog-->
@@ -133,24 +133,11 @@
         </div>
         <div class="col-sm-5">
             <div class="top-news">
-                <div class="top-news-content" id="top-news-firstText">
-                    <span>&nbsp;Lorem ipsum dolor sit amet</span>
-                    <p>
-                        consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi Sed egestas, ante et vulputate
-                    </p>
-                </div><hr class="top-news-line">
-                <div class="top-news-content" id="top-news-secondText">
-                    <span >&nbsp;Lorem ipsum dolor sit amet</span>
-                    <p>
-                        consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi Sed egestas, ante et vulputate
-                    </p>
-                </div><hr class="top-news-line">
-                <div class="top-news-content" id="top-news-thirdText">
-                    <span >&nbsp;Lorem ipsum dolor sit amet</span>
-                    <p>
-                        consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi Sed egestas, ante et vulputate
-                    </p>
-                </div>
+                <div class="top-news-content" id="top-news-firstText"></div>
+                <hr class="top-news-line">
+                <div class="top-news-content" id="top-news-secondText"></div>
+                <hr class="top-news-line">
+                <div class="top-news-content" id="top-news-thirdText"></div>
             </div>
         </div>
     </div>
@@ -308,6 +295,7 @@
                     </div>
                     <div class="col-sm-11">
                         <!-- 主要的新闻列表-->
+
                         <div class="main-news" id="main-news">
                             <ul id="simplecontent">
                             </ul>
@@ -340,49 +328,65 @@
             <div id="portfolio-slider" class="portfolio-slider owl-carousel owl-theme">
                 <div class="item">
                     <div class="item-image">
-                        <img src="../Images/portfolio/1.jpg" alt="Portfolio Image">
+                        <a href="http://www.codingirls.club/">
+                            <img src="../Images/portfolio/1.jpg" alt="Portfolio Image">
+                        </a>
                     </div>
                     <span class="item-title">We Are Family</span>
                 </div><!--Latest News滑页图片和图片描述部分-->
                 <div class="item">
                     <div class="item-image">
-                        <img src="../Images/portfolio/2.jpg" alt="Portfolio Image">
+                        <a href="http://www.codingirls.club/">
+                            <img src="../Images/portfolio/2.jpg" alt="Portfolio Image">
+                        </a>
                     </div>
                     <span class="item-title">Little Boy Coding</span>
                 </div>
                 <div class="item">
                     <div class="item-image">
-                        <img src="../Images/portfolio/3.jpg" alt="Portfolio Image">
+                        <a href="http://www.codingirls.club/">
+                            <img src="../Images/portfolio/3.jpg" alt="Portfolio Image">
+                        </a>
                     </div>
                     <span class="item-title">Aha! Good job!</span>
                 </div>
                 <div class="item">
                     <div class="item-image">
-                        <img src="../Images/portfolio/4.jpg" alt="Portfolio Image">
+                        <a href="http://www.codingirls.club/">
+                            <img src="../Images/portfolio/4.jpg" alt="Portfolio Image">
+                        </a>
                     </div>
                     <span class="item-title">Don't you want to come?</span>
                 </div>
                 <div class="item">
                     <div class="item-image">
-                        <img src="../Images/portfolio/5.jpg" alt="Portfolio Image">
+                        <a href="http://www.codingirls.club/">
+                            <img src="../Images/portfolio/5.jpg" alt="Portfolio Image">
+                        </a>
                     </div>
                     <span class="item-title">Let's Coding</span>
                 </div>
                 <div class="item">
                     <div class="item-image">
-                        <img src="../Images/portfolio/6.jpg" alt="Portfolio Image">
+                        <a href="http://www.codingirls.club/">
+                            <img src="../Images/portfolio/6.jpg" alt="Portfolio Image">
+                        </a>
                     </div>
                     <span class="item-title">Welcome To ThoughtWorks</span>
                 </div>
                 <div class="item">
                     <div class="item-image">
-                        <img src="../Images/portfolio/7.jpg" alt="Portfolio Image">
+                        <a href="http://www.codingirls.club/">
+                            <img src="../Images/portfolio/7.jpg" alt="Portfolio Image">
+                        </a>
                     </div>
                     <span class="item-title">Join us!</span>
                 </div>
                 <div class="item">
                     <div class="item-image">
-                        <img src="../Images/portfolio/8.jpg" alt="Portfolio Image">
+                        <a href="http://www.codingirls.club/">
+                            <img src="../Images/portfolio/8.jpg" alt="Portfolio Image">
+                        </a>
                     </div>
                     <span class="item-title">Hello World</span>
                 </div>
