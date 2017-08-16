@@ -1136,8 +1136,35 @@ footer a {
     line-height:60px;
     font-size:24px;
 }
-.main-news img{
-    float:left;
-    height: 123px;
-    margin-top: 6px;
+
+/*主要的博客列表*/
+.main-blog {
+    margin: 20px 0 20px 0;
+}
+.main-blog li img {
+    float: left;
+    margin: 5px 20px 5px 0;
+    height: 140px;
+    width: 230px;
+}
+
+.main-blog li {
+    margin: 20px 0;
+    overflow: auto;
+}
+
+.main-blog li:hover {
+    background: #eee;
+    cursor: pointer;
+}
+.main-blog span {
+    font-size: 14px;
+    margin-right: 10px;
+    float: right;
+    color: #4a4a4a;
+}
+
+.main-blog h3 {
+    color: #2b2b2b;
+    margin-bottom: 10px;
 }

@@ -1223,8 +1223,35 @@ footer a {
 }
 /*主要的新闻列表*/
 .main-news {
-	margin: 20px;
+	margin: 20px 0 20px 0;
 }
+.main-news li img {
+	float: left;
+	margin: 5px 20px 5px 0;
+	height: 140px;
+	width: 230px;
+}
+
+.main-news li {
+	margin: 20px 0;
+	overflow: auto;
+}
+
+.main-news li:hover {
+	background: #eee;
+	cursor: pointer;
+}
+.main-news span {
+	font-size: 14px;
+	margin-right: 10px;
+	float: right;
+	color: #4a4a4a;
+}
+.main-news h3 {
+	color: #2b2b2b;
+	margin-bottom: 10px;
+}
+
 .top-news{
 	margin: 9px;
 }
@@ -1258,23 +1285,6 @@ footer a {
 }
 
 
-.main-news li img {
-	float: left;
-	margin: 0 20px 0 0;
-	height: 18%;
-	width: 22%;
-}
-
-.main-news li {
-	margin: 20px 0;
-	overflow: auto;
-}
-
-.main-news li:hover {
-	background: #eee;
-	cursor: pointer;
-}
-
 #pagination{
 	display: inline-block;
 }
@@ -1287,6 +1297,4 @@ footer a {
 	-webkit-box-orient:vertical;
 }
 
-#simplecontent h3 {
-	color: #2b2b2b;
-}
+
