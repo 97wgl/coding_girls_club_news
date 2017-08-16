@@ -244,6 +244,15 @@ h1,h2,h3,h4,h5,h6 {
 	right: 2px;
 	top: 19px;
 }
+.search-content .left-content{
+	float: left;
+	width: 7%;
+
+}
+.search-content .right-content{
+	float: right;
+	width: 93%;
+}
 .header-fixed-top header.sticky {
 	background-color: #ffffff;
 	position: fixed;
