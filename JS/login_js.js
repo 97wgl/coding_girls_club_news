@@ -12,7 +12,8 @@ $("#btn_login").click(function () {
     $.post('/login',{user_email: user_email, user_password: user_password},
         function (res) {
             if(res) {
-                $.session.set('isLogin', true);
+                $.session.set('admin_eamil', user_email);
+                $.session.set('admin_encry_pwd', encry_password.encode(user_password));
                 if ($("#ck_rmbUser").attr("checked")) {
                     $.cookie("rmbUser", "true", {expires: 7}); //存储一个带7天期限的cookie
                     $.cookie("user_email", user_email, {expires: 7});
