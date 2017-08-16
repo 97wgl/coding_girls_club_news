@@ -22,11 +22,32 @@ $(document).ready(function(){
        async:false,
        success:function (data) {
            count = data[0].all_news_count;
+           let page = parseInt((count+4)/4);
+           displaynews(1);
+           $(function() {
+               $("#pagination").pagination({
+                   currentPage: 1,
+                   totalPage: page,
+                   isShow: true,
+                   count: 7,
+                   homePageText: "首页",
+                   endPageText: "尾页",
+                   prevPageText: "上一页",
+                   nextPageText: "下一页",
+                   callback: function(current) {
+                       displaynews(current);
+                   }
+               });
+           });
        }
    });
-    let page = parseInt((count+4)/4);
-    displaynews(1);
-    $(function() {
+
+});
+/*function diPlaySearchNews(news) {
+    let count = news.length;
+    let page = parseInt((count + 4) / 4);
+    disPlayPage(1,news);
+    $(function () {
         $("#pagination").pagination({
             currentPage: 1,
             totalPage: page,
@@ -36,12 +57,32 @@ $(document).ready(function(){
             endPageText: "尾页",
             prevPageText: "上一页",
             nextPageText: "下一页",
-            callback: function(current) {
-                displaynews(current);
+            callback: function (current) {
+                disPlayPage(current,news);
             }
         });
     });
-});
+}*/
+
+/*function disPlayPage(n,news) {
+    let i = (n-1) * 4;
+    for (; i < (n-1) * 4 + 4; i++) {
+        let li = $('<li></li>');
+        let img = $('<img>');
+        let h3 = $('<h3></h3>');
+        let p = $('<p></p>');
+        let a = $('<a></a>');
+        img.attr('src', `${news[i].news_image}`);
+        a.attr('href', `http://localhost:3000/HTML/detail.html?id=${nesws[i].id}`);
+        h3.html(`${news[i].news_title}`);
+        p.html(`${news[i].news_content}`);
+        li.append(img);
+        li.append(h3);
+        li.append(p);
+        a.append(li);
+        $('#simplecontent').append(a);
+    }
+}*/
 
 function displaynews(index) {
     $('#simplecontent').html('');
@@ -84,8 +125,9 @@ function  displaySearch(nesws) {
 $("#201701").click(function () {
     let id="2017-01";
     $.get(`/time_search?searchDate=${id}`,function (res) {
-        displaySearch(res);
+        diPlaySearchNews(res);
     });
+    document.getElementById('pagination').totalPage=6;
 });
 $("#201702").click(function () {
     let id="2017-02";
@@ -110,5 +152,13 @@ $("#201708").click(function () {
     $.get(`/time_search?searchDate=${id}`,function (res) {
         displaySearch(res);
     });
+
+});
+$("#201709").click(function () {
+    let id="2017-09";
+    $.get(`/time_search?searchDate=${id}`,function (res) {
+        displaySearch(res);
+    });
+
 });
 
