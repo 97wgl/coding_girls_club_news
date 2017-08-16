@@ -33,12 +33,12 @@ $(document).ready(function () {
         });
 
     });
-    
+  
     $("#forgetPass").click(function () {
         replaceForm();
         history.pushState(null,null,'forget_pwd');
     });
-    
+  
     $("#commit_forget_pass").click(function () {
         $.post('/comfirm_email', function (res) {
             // if(res){
