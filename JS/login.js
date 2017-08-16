@@ -9,27 +9,27 @@ $(document).ready(function () {
     }
 
     $("#btn_login").click(function () {
-        $.post('/login', function (res) {
-            if(res) {
+        let user_email = $("#user_email").val();
+        let user_password = $("#user_password").val();
 
-                if ($("#ck_rmbUser").attr("checked")) {
-                    let user_email = $("#user_email").val();
-                    let user_password = encry_password.encode($("#user_password").val());
-                    $.cookie("rmbUser", "true", {expires: 7}); //存储一个带7天期限的cookie
-                    $.cookie("user_email", user_email, {expires: 7});
-                    $.cookie("user_password", user_password, {expires: 7});
+        $.post('/login',{user_email: user_email, user_password: user_password},
+            function (res) {
+                if(res) {
+                    if ($("#ck_rmbUser").attr("checked")) {
+                        $.cookie("rmbUser", "true", {expires: 7}); //存储一个带7天期限的cookie
+                        $.cookie("user_email", user_email, {expires: 7});
+                        $.cookie("user_password", encry_password.encode(user_password), {expires: 7});
+                    }
+                    else {
+                        $.cookie("rmbUser", "false", {expire: -1});
+                        $.cookie("user_email", "", {expires: -1});
+                        $.cookie("user_password", "", {expires: -1});
+                    }
+                    location.href='admin';
+                } else {
+                    alert("邮箱名或密码错误！");
+                    location.reload();
                 }
-                else {
-                    $.cookie("rmbUser", "false", {expire: -1});
-                    $.cookie("user_email", "", {expires: -1});
-                    $.cookie("user_password", "", {expires: -1});
-                }
-                location.href = '/manage';
-            }
-            else {
-                alert(res+"邮箱或密码有误！");
-            }
-
         });
 
     });
@@ -74,12 +74,12 @@ function replaceForm() {
 
 
 //修改密码和密码确认
-document.addEventListener("DOMContentLoaded",function () {
-    document.getElementById('pw_form').addEventListener('submit',function (event) {
-        event.preventDefault();
-        confirmPw();
-    });
-});
+// document.addEventListener("DOMContentLoaded",function () {
+//     document.getElementById('pw_form').addEventListener('submit',function (event) {
+//         event.preventDefault();
+//         confirmPw();
+//     });
+// });
 
 function confirmPw() {
     let user_pw = document.getElementById('user_pw').value;
@@ -94,7 +94,3 @@ function confirmPw() {
         $('#user_cfm_pw').val('');
     }
 }
-
-/**
- * Created by wgl on 17-8-10.
- */

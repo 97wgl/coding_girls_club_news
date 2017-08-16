@@ -94,12 +94,11 @@ app.post("/login", function (req, res) {
         txt_email: req.body.user_email,
         txt_password: req.body.user_password
     };
-
     const sql_str = "select * from Manager where manager_email = '" + manageLoginInfo.txt_email + "' and manager_pwd = '" + manageLoginInfo.txt_password + "'";
 
     db.all(sql_str, function (err, result) {
-        if(result.length !== 0) {
-            console.log(result);
+        if(result.length) {
+
             res.send(true);
         } else {
             res.send(false);
@@ -107,7 +106,6 @@ app.post("/login", function (req, res) {
     });
 });
 
-//后台分页展示信息news
 app.get("/all_news", function (req, res) {
 
     const req_page = req.query.page;
