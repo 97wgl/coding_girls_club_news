@@ -51,6 +51,7 @@ $('#searchIcon').click(()=>{
                 a.append(li);
                 $('#simplecontent').append(a);
             }
+            $(window).scrollTop(600);
         })
     });
 // 轮播图以及旁边新闻列表
