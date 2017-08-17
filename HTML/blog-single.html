@@ -335,27 +335,33 @@
         <h3>Contact us</h3>
         <ul class="list-inline footer-social">
           <li>
-            <a href="#">
+            <a href="#" title="twitter">
               <i class="fa fa-twitter" aria-hidden="true"></i>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#" title="facebook">
               <i class="fa fa-facebook-square" aria-hidden="true"></i>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#" onMouseOut="hideImg1()"  onmouseover="showImg1()">
               <i class="fa fa-qq" aria-hidden="true"></i>
             </a>
+            <div id="wxImg1" style="display:none;height:50px;back-ground:#f00;position:absolute;">
+              <img src="../Images/qq.jpg">
+            </div>
           </li>
           <li>
-            <a href="#">
+            <a href="#" onMouseOut="hideImg2()"  onmouseover="showImg2()">
               <i class="fa fa-weixin" aria-hidden="true"></i>
             </a>
+            <div id="wxImg2" style="display:none;height:50px;back-ground:#f00;position:absolute;">
+              <img src="../Images/CodingGirlsClub.jpg">
+            </div>
           </li>
           <li>
-            <a href="#">
+            <a href="#" title="weibo">
               <i class="fa fa-weibo" aria-hidden="true"></i>
             </a>
           </li>
@@ -387,7 +393,6 @@
     <script src="../JS/functions.js"></script>
     <script src="../JS/wow.min.js"></script>
     <script src="../JS/blog.js"></script>
-
     <script>
 
         $(document).ready(function() {
@@ -441,6 +446,20 @@
 
             init_gmap();
         });
+    </script>
+    <script>
+        function  showImg1(){
+            document.getElementById("wxImg1").style.display='block';
+        }
+        function hideImg1(){
+            document.getElementById("wxImg1").style.display='none';
+        }
+        function  showImg2(){
+            document.getElementById("wxImg2").style.display='block';
+        }
+        function hideImg2(){
+            document.getElementById("wxImg2").style.display='none';
+        }
     </script>
  </body>
 </html>

@@ -15,7 +15,6 @@
 	<link href="../CSS/owl.carousel.css" rel="stylesheet">
 	<link href="../CSS/responsive.css" rel="stylesheet">
     <link rel="stylesheet" href="../library/jQueryPagination/css/jquery.pagination.css">
-
 </head>
 <body class="header-fixed-top"> <!--header-fixed-top：悬浮导航栏home样式 -->
 
@@ -397,40 +396,44 @@
         </div><!-- /.portfolio-area Latest News部分-->
     </div><!-- /.container -->
 </section>
-
-
 <footer class="footer" id="footer">
     <div class="container margin-btm-30">
         <h3>Contact us</h3>
         <ul class="list-inline footer-social">
             <li>
-                <a href="#">
+                <a href="#" title="twitter">
                     <i class="fa fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="#" title="facebook">
                     <i class="fa fa-facebook-square" aria-hidden="true"></i>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="#" onMouseOut="hideImg1()"  onmouseover="showImg1()">
                     <i class="fa fa-qq" aria-hidden="true"></i>
                 </a>
+                <div id="wxImg1" style="display:none;height:50px;back-ground:#f00;position:absolute;">
+                    <img src="../Images/qq.jpg">
+                </div>
             </li>
             <li>
-                <a href="#">
+                <a href="#" onMouseOut="hideImg2()"  onmouseover="showImg2()">
                     <i class="fa fa-weixin" aria-hidden="true"></i>
                 </a>
+                <div id="wxImg2" style="display:none;height:50px;back-ground:#f00;position:absolute;">
+                    <img src="../Images/CodingGirlsClub.jpg">
+                </div>
             </li>
             <li>
-                <a href="#">
+                <a href="#" title="weibo">
                     <i class="fa fa-weibo" aria-hidden="true"></i>
                 </a>
             </li>
         </ul>
         <p>If you have some questions:
-            <a href="#">info@codingirls.club</a>
+            <a href="#" title="">info@codingirls.club</a>
         </p>
     </div>
     <div class="footer-bottom">
@@ -439,12 +442,12 @@
         </div>
     </div>
 </footer>
+
 <div id="scroll-to-top" class="scroll-to-top">
   <span>
     <i class="fa fa-chevron-up"></i>
   </span>
 </div>
-
 <script src="../JS/modernizr-2.8.3.min.js"></script>
 <script src="../JS/jquery-2.1.0.min.js"></script>
 <script src="../JS/jquery.magnific-popup.min.js"></script>
@@ -508,10 +511,20 @@
 
         init_gmap();
     });
-
 </script>
-
-
-
+<script>
+    function  showImg1(){
+        document.getElementById("wxImg1").style.display='block';
+    }
+    function hideImg1(){
+        document.getElementById("wxImg1").style.display='none';
+    }
+    function  showImg2(){
+        document.getElementById("wxImg2").style.display='block';
+    }
+    function hideImg2(){
+        document.getElementById("wxImg2").style.display='none';
+    }
+</script>
 </body>
 </html>
