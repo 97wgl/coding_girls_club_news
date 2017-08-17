@@ -106,6 +106,7 @@ function displaynews(index) {
 // ***********************俊俊******************************
 function displaySearch(news) {
     $('#pagination').html('');
+    $('#simplecontent').html('');
     for (let i = 0; i < news.length; i++) {
         let li = $('<li></li>');
         let img = $('<img>');

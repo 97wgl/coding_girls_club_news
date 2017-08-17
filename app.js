@@ -399,8 +399,8 @@ app.get("/search", function (req, res) {
 app.get('/time_search',function (req,res) {
 
     const search_time = req.query.searchDate;
-    const page = req.query.searchPage;
-    const sqlStr = "select * from news where news_time like '"+search_time+"%' order by news_time desc limit ('"+page+"'-1)*4,4";
+  /*  const page = req.query.searchPage;*/
+    const sqlStr = "select * from news where news_time like '"+search_time+"%' order by news_time";
 
     db.all(sqlStr, function (err,result) {
         if(!err){
@@ -411,7 +411,20 @@ app.get('/time_search',function (req,res) {
     });
 
 });
+app.get('/time_search_blog',function (req,res) {
 
+    const search_time = req.query.searchDate;
+    const sqlStr = "select * from blogs where blog_time like '"+search_time+"%' order by blog_time";
+
+    db.all(sqlStr, function (err,result) {
+        if(!err){
+            res.send(result);
+        } else{
+            res.send(err);
+        }
+    });
+
+});
 //前台根据id获取详细新闻
 app.get('/detail',function (req,res) {
 

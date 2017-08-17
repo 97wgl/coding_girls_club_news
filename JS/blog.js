@@ -73,3 +73,70 @@ function displaynews(index) {
     })
 }
 //************************邓雍**********************************
+//*****************************俊俊
+function  displaySearch(nesws) {
+    $('#pagination').html('');
+    $('#simplecontent').html('');
+    for(i=0;i<nesws.length;i++){
+        let li = $('<li></li>');
+        let h3 = $('<h3></h3>');
+        let div = $('<div></div>');
+        let a = $('<a></a>');
+        let span = $('<span></span>');
+        let img = nesws[i].blog_content.match(/<img[^>]+>/);
+        if(!img){
+            img = "<img src='../Images/假装有图.jpg'>";
+        }
+        a.attr('href',`http://localhost:3000/HTML/detail_blogs.html?id=${nesws[i].id}`);
+        h3.html(`${nesws[i].blog_title}`);
+        div.html(`${nesws[i].blog_content}`);
+        span.html(`${nesws[i].blog_time}`);
+        li.append(img);
+        li.append(h3);
+        li.append(div);
+        li.append(span);
+        a.append(li);
+        $('#simplecontent').append(a);
+    }
+
+};
+/*******************junjun***********/
+$("#201701").click(function () {
+    let id="2017-01";
+    $.get(`/time_search_blog?searchDate=${id}`,function (res) {
+        displaySearch(res);
+    });
+});
+$("#201702").click(function () {
+    let id="2017-02";
+    $.get(`/time_search_blog?searchDate=${id}`,function (res) {
+        displaySearch(res);
+    });
+});
+$("#201703").click(function () {
+    let id="2017-03";
+    $.get(`/time_search_blog?searchDate=${id}`,function (res) {
+        displaySearch(res);
+    });
+});
+$("#201704").click(function () {
+    let id="2017-04";
+    $.get(`/time_search_blog?searchDate=${id}`,function (res) {
+        displaySearch(res);
+    });
+});
+$("#201708").click(function () {
+    let id="2017-08";
+    $.get(`/time_search_blog?searchDate=${id}`,function (res) {
+        displaySearch(res);
+    });
+
+});
+$("#201709").click(function () {
+    let id="2017-09";
+    $.get(`/time_search_blog?searchDate=${id}`,function (res) {
+        displaySearch(res);
+    });
+
+});
+//*****************************俊俊
