@@ -112,12 +112,11 @@ function displaySearch(news) {
     $('#simplecontent').html('');
     for (let i = 0; i < news.length; i++) {
         let li = $('<li></li>');
-        let img = $('<img>');
         let h3 = $('<h3></h3>');
         let p = $('<p></p>');
         let a = $('<a></a>');
         let span = $('<span></span>');
-        img.attr('src', `${news[i].news_image}`);
+        let img = news[i].news_content.match(/<img[^>]+>/);
         a.attr('href', `/HTML/detail.html?id=${news[i].id}`);
         h3.html(`${news[i].news_title}`);
         p.html(`${news[i].news_content}`);

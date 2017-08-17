@@ -456,7 +456,7 @@ app.get('/detail_blog',function (req,res) {
 //前台首页头条新闻
 app.get("/news_list", function (req, res) {
 
-    const sql_str = "select * from news where isHeadline='1' order by news_time desc limit 0,3";
+    const sql_str = "select * from news where isHeadline='true' order by news_time desc limit 0,3";
     //查询当日的头条新闻
     db.all(sql_str, function (err, result) {
         if (err) {
