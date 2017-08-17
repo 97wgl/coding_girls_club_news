@@ -1328,6 +1328,14 @@ footer a {
 	margin-top: 3.5%;
 }
 
+/*轮播图*/
+.carousel-position{
+	padding-left: 5%;
+}
+.carousel-inner .item img{
+	height: 70vh;!important;
+	width: 100%;
+}
 
 
 
