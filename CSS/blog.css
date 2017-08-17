@@ -1214,4 +1214,19 @@ footer a {
     overflow: hidden;
 }
 
+#searchGroup{
+    margin-top: 3.5%;
+}
+
+#searchInput{
+    display: inline-block;
+    width: 90%;
+}
+
+#searchIcon{
+    display:inline-block ;
+    font-size: 23px;
+    color:#209b60 ;
+}
+
 
