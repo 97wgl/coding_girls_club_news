@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" href="../library/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../library/editor.md-master/css/editormd.min.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/manage_style.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/list_style.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/article_detail_style.css">
+</head>
+
+<body>
+<nav>
+    <div id="logo" title="点击刷新">LOGO + 后台管理</div>
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <select id="search-select">
+        <option value="news" selected>新闻</option>
+        <option value="blog">博客</option>
+    </select>
+    <input type="search" id="search" placeholder="搜索关键词">
+    <div id="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</div>
+</nav>
+
+<main>
+    <aside>
+        <div id="admin-info">
+            <img src="../Images/头像001.jpg">
+            <div class="welcome">
+                <span id="admin-name">admin</span>
+                <div class="modify-password">修改密码</div>
+            </div>
+        </div>
+        <div class="separate">
+            网站内容管理
+        </div>
+        <div id="new" class="title">
+            <i class="fa fa-plus-square" aria-hidden="true"></i>
+            &nbsp;&nbsp;新建文章
+            <span class="switch"><i class='fa fa-angle-down' aria-hidden='true'></i></span>
+        </div>
+        <div id="new-list">
+            <div id="new-news" class="list"><i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;添加新闻</div>
+            <div id="new-blog" class="list"><i class="fa fa-bold" aria-hidden="true"></i>&nbsp;&nbsp;添加博客</div>
+        </div>
+        <div id="modify" class="title">
+            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+            &nbsp;&nbsp;文章管理
+            <span class="switch"><i class='fa fa-angle-down' aria-hidden='true'></i></span>
+        </div>
+        <div id="modify-list">
+            <div class="list" id="modify-news"><i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;管理新闻</div>
+            <div class="list" id="modify-blog"><i class="fa fa-bold" aria-hidden="true"></i>&nbsp;&nbsp;管理博客</div>
+        </div>
+        <div class="separate">
+            头条管理
+        </div>
+        <div class="list" id="set-headline">
+            <i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;头条文章设置
+        </div>
+        <div class="separate">
+            默认编辑器设置
+        </div>
+        <div class="list" id="defaultEditor">
+            <i class="fa fa-sliders" aria-hidden="true"></i>&nbsp;&nbsp;默认编辑器
+        </div>
+        <div class="separate">
+            管理员账户设置
+        </div>
+        <div class="list" id="admin-account">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;&nbsp;管理员账户
+        </div>
+
+    </aside>
+
+    <article>
+        <div id="tips">
+            <i class="fa fa-globe" aria-hidden="true"></i> &nbsp;本站当前共有<span id="news-count"></span>条新闻，<span id="blog-count"></span>条博客
+            <br>
+            <br>
+            <i class="fa fa-hand-o-left" aria-hidden="true"></i> &nbsp;从侧边栏选择功能
+        </div>
+    </article>
+
+</main>
+
+
+<script src="../library/jquery-3.2.1.min.js"></script>
+<script src="../library/jquery.cookie.js"></script>
+<script src="../library/jquerySession.js"></script>
+<script src="../library/wangEditor-3.0.7/release/wangEditor.min.js"></script>
+<script src="../library/editor.md-master/editormd.min.js"></script>
+<script src="../library/layer/layer.js"></script>
+<script src="../library/to-markdown.js"></script>
+<script src="../JS/encryption.js"></script>
+<script src="../JS/confirm_login.js"></script>
+<script src="../JS/manage_js.js"></script>
+</body>
+</html>

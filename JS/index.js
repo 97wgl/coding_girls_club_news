@@ -37,11 +37,10 @@ $('#searchIcon').click(()=>{
         $.get(`/search_news?keywords=${$('#searchText').val()}`,(news)=>{
             for(i=0;i<news.length;i++){
                 let li = $('<li></li>');
-                let img = $('<img>');
                 let h3 = $('<h3></h3>');
                 let p = $('<p></p>');
                 let a = $('<a></a>');
-                img.attr('src',`${news[i].news_image}`);
+                let img = news[i].news_content.match(/<img[^>]+>/);
                 a.attr('href',`/HTML/detail.html?id=${news[i].id}`);
                 h3.html(`${news[i].news_title}`);
                 p.html(`${news[i].news_content}`);
@@ -58,20 +57,24 @@ $('#searchIcon').click(()=>{
 function newsListInfo() {
     $.get('/news_list',(headlineNews)=> {
         // 插入轮播图的图片
-        $('#firstImg').find('img').attr('src', `${headlineNews[0].news_image}`);
-        $('#secondImg').find('img').attr('src', `${headlineNews[1].news_image}`);
-        $('#thirdImg').find('img').attr('src', `${headlineNews[2].news_image}`);
+        let img1 = headlineNews[0].news_content.match(/<img[^>]+>/);
+        let img2 = headlineNews[1].news_content.match(/<img[^>]+>/);
+        let img3 = headlineNews[2].news_content.match(/<img[^>]+>/);
+        $('#firstImg').prepend(img1);
+        $('#secondImg').prepend(img2);
+        $('#thirdImg').prepend(img3);
 
         // 轮播图旁边新闻
         for(let i = 0; i < headlineNews.length; i++) {
             let span = $('<span></span>');
-            let p = $('<p></p>');
             let a = $('<a></a>');
+            let div = $('<div class="simplenews"></div>');
             span.html(headlineNews[i].news_title);
-            p.html(headlineNews[i].news_content);
+            div.append(headlineNews[i].news_content);
+            div.find("img").attr("display", "none");
             a.attr('href', `/HTML/detail.html?id=${headlineNews[i].id}`);
             a.append(span);
-            a.append(p);
+            a.append(div);
             let idArr = ['#top-news-firstText','#top-news-secondText','#top-news-thirdText'];
             $(idArr[i]).append(a);
         }
@@ -83,12 +86,11 @@ function displaynews(index) {
     $.get(`/all_news_pading?page=${index}`,(news)=>{
         for(i=0;i<news.length;i++){
             let li = $('<li></li>');
-            let img = $('<img>');
             let h3 = $('<h3></h3>');
             let p = $('<p></p>');
             let a = $('<a></a>');
             let span = $('<span></span>');
-            img.attr('src',`${news[i].news_image}`);
+            let img = news[i].news_content.match(/<img[^>]+>/);
             a.attr('href',`/HTML/detail.html?id=${news[i].id}`);
             h3.html(`${news[i].news_title}`);
             p.html(`${news[i].news_content}`);

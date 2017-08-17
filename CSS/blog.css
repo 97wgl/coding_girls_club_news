@@ -1152,6 +1152,7 @@ footer a {
 }
 
 .main-blog li {
+    width: 100%;
     margin: 20px 0;
     overflow: auto;
 }
@@ -1209,8 +1210,8 @@ footer a {
 }
 
 #simplecontent  div{
-   height: 60px;
-   line-height: 20px;
+   height: 90px;
+   line-height: 33px;
     overflow: hidden;
 }
 

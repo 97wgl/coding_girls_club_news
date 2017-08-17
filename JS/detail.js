@@ -8,8 +8,7 @@ $().ready(()=>{
          let news = newsInfo[0];
          $('#paper_title').find("h1").html(news.news_title);
          $('#paper_author').find('p').html(news.news_time);
-         $('#paper_content').find('p').html(news.news_content);
-         $('#paper_image').find('img').attr('src',`${news.news_image}`)
+         $('#paper_content').find('div').html(news.news_content);
             window._bd_share_config = {
                 common : {
                     bdText :`${news.news_title}`,

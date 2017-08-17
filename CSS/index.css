@@ -1337,5 +1337,14 @@ footer a {
 	width: 100%;
 }
 
+#simplecontent  li{
+	height: 150px;
+	line-height: 50px;
+	overflow: hidden;
+}
 
-
+.simplenews{
+	height: 50px;
+	line-height: 50px;
+	overflow: hidden;
+}

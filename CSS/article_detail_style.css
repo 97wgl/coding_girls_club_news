@@ -1,0 +1,31 @@
+#detail-title{
+    margin: 30px auto 0 auto;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+#detail-article{
+    width: 86%;
+    margin: 30px auto;
+    font-size: 16px;
+    text-indent: 32px;
+    line-height: 28px;
+    letter-spacing: 2px;
+    color: #333333;
+    overflow: hidden;
+}
+#detail-time{
+    width: 200px;
+    margin: 30px 0 30px 7%;
+    font-size: 14px;
+    color: #615e5e;
+}
+#detail-delete-btn, #detail-modify-btn{
+    float: right;
+    line-height: 79px;
+    margin-right: 5%;
+    cursor: pointer;
+}
+#detail-delete-btn{
+    margin-right: 10%;
+}
