@@ -1,0 +1,164 @@
+#paper{
+    margin: 40px auto;
+    height: auto;
+    width: 80%;
+    box-shadow:0 0 10px rgba(0,0,0,0.5) ;
+    border-radius: 5px;
+    padding-bottom: 50px;
+    position: relative;
+}
+.top{
+    width:100%;
+    height:100px ;
+    margin: 0 auto;
+    position: fixed;
+    top: 0px;
+    z-index: 2;
+    background-color: #209b60;
+}
+#home_icon{
+    position: absolute;
+    right: -20px;
+    top: -23px;
+    font-size: 40px;
+    z-index: 1;
+}
+#paper_title{
+    padding: 10px;
+}
+#paper_author{
+    margin-left: 77px;
+}
+#paper_author p{
+  font-size: 15px;
+}
+.shareIcon{
+    font-size:20px;
+    margin: 0 auto 10px;
+}
+#paper_share{
+    width: auto;
+    height: 100%;
+    position: relative;
+}
+#paper_imageandtext{
+    height: 100%;
+}
+#paper_image{
+    margin: 0 auto 20px;
+}
+#paper_image img{
+    border-radius: 10px;
+    width: 60%;
+}
+#paper_content{
+
+}
+#paper_content p{
+     font-size: 21px;
+     padding: 0 10%;
+}
+#paper hr{
+    height: 2px;
+    border: none;
+    background-color: rgba(35, 35, 35, 0.25);
+    margin-bottom: 46px;
+}
+#paper_author p{
+    margin-left: 30px;
+}
+
+#chevron_left{
+    display: inline-block;
+    position: absolute;
+    left: 4%;
+    font-size: 40px;
+    top: 10%;
+}
+#chevron_right{
+    display: inline-block;
+    position: absolute;
+    right: 4%;
+    font-size: 40px;
+    top: 10%;
+}
+#chevron_right:hover{
+    color: #0b0b0b;
+}
+#chevron_left:hover{
+    color: #0b0b0b;
+}
+
+.site-logo {
+    padding-top: 35px;
+    height: auto;
+}
+
+.container .site-logo img{
+    height: 90px;
+    width: 230px;
+}
+
+/**************************分享按钮*****************************/
+
+.bdsharebuttonbox a {
+    width:60px!important;
+    height:60px!important;
+    margin:0 10px 10px 0!important;
+    padding:0!important;
+    display:inline-block;
+}
+
+.bdsharebuttonbox a img {
+    width:60px;
+    height:60px;
+}
+
+.bdsharebuttonbox .bds_tsina {
+    background:url(../Images/icons/weibo.png) no-repeat center center/60px 60px;
+}
+
+.bdsharebuttonbox .bds_weixin {
+    background:url(../Images/icons/wechat.png) no-repeat center center/60px 60px;
+}
+.bdsharebuttonbox .bds_qzone {
+    background:url(../Images/icons/qzone.png) no-repeat center center/60px 60px;
+}
+.bdsharebuttonbox .bds_twi {
+    background:url(../Images/icons/twitter3.png) no-repeat center center/60px 60px;
+}
+.bdsharebuttonbox .bds_fbook {
+    background:url(../Images/icons/facebook.png) no-repeat center center/60px 60px;
+}
+
+.bdshare-button-style0-16 a{
+    float: none!important;
+}
+
+.bdshare-button-style0-16 .bds_tsina {
+    background-position: center!important;
+}
+.bdshare-button-style0-16 .bds_weixin {
+    background-position: center!important;
+}
+.bdshare-button-style0-16 .bds_qzone {
+    background-position: center!important;
+}
+.bdshare-button-style0-16 .bds_twi {
+    background-position: center!important;
+}
+.bdshare-button-style0-16 .bds_fbook {
+    background-position: center!important;
+}
+
+a {
+    color: #444444 !important;
+}
+
+#paper_content h2{
+    margin-left: 20px!important;
+}
+/*************************************************************/
+
+
+
