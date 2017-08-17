@@ -27,13 +27,13 @@ $().ready(()=>{
 
 $().ready(()=>{
     $('#chevron_left').click(()=>{
-        window.open(`http://localhost:3000/HTML/detail.html?id=${window.location.href.split('?')[1].split('=')[1]-1}`)
+        window.open(`/HTML/detail.html?id=${window.location.href.split('?')[1].split('=')[1]-1}`)
     });
 });
 
 $().ready(()=>{
     $('#chevron_right').click(()=>{
-        window.open(`http://localhost:3000/HTML/detail.html?id=${parseInt(window.location.href.split('?')[1].split('=')[1])+1}`)
+        window.open(`/HTML/detail.html?id=${parseInt(window.location.href.split('?')[1].split('=')[1])+1}`)
     });
 });
 

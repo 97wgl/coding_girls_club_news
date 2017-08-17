@@ -9,7 +9,7 @@ $().ready(()=>{
         for(let i = 0;i < res.length;i ++){
             html_str+=`<li>
             <div class="recent-post-details">
-                <a class="post-title" href="http://localhost:3000/HTML/detail_blogs.html?id=${res[i].id}" id="post-title1">${res[i].blog_title}</a><br>
+                <a class="post-title" href="/HTML/detail_blogs.html?id=${res[i].id}" id="post-title1">${res[i].blog_title}</a><br>
                 <div class="post-meta">
                 <time>${res[i].blog_time}</time>
                 <span href="#">  Administrator</span>
@@ -56,7 +56,7 @@ $().ready(()=>{
                 if(!img){
                     img = "<img src='../Images/假装有图.jpg'>";
                 }
-                a.attr('href',`http://localhost:3000/HTML/detail_blogs.html?id=${blogs[i].id}`);
+                a.attr('href',`/HTML/detail_blogs.html?id=${blogs[i].id}`);
                 h3.html(`${blogs[i].blog_title}`);
                 div.html(`${blogs[i].blog_content}`);
                 span.html(`${blogs[i].blog_time}`);
@@ -87,7 +87,7 @@ function displaynews(index) {
             if(!img){
                 img = "<img src='../Images/假装有图.jpg'>";
             }
-            a.attr('href',`http://localhost:3000/HTML/detail_blogs.html?id=${blogs[i].id}`);
+            a.attr('href',`/HTML/detail_blogs.html?id=${blogs[i].id}`);
             h3.html(`${blogs[i].blog_title}`);
             div.html(`${blogs[i].blog_content}`);
             span.html(`${blogs[i].blog_time}`);
@@ -115,7 +115,7 @@ function  displaySearch(nesws) {
         if(!img){
             img = "<img src='../Images/假装有图.jpg'>";
         }
-        a.attr('href',`http://localhost:3000/HTML/detail_blogs.html?id=${nesws[i].id}`);
+        a.attr('href',`/HTML/detail_blogs.html?id=${nesws[i].id}`);
         h3.html(`${nesws[i].blog_title}`);
         div.html(`${nesws[i].blog_content}`);
         span.html(`${nesws[i].blog_time}`);

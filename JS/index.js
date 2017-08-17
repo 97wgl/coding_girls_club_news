@@ -42,7 +42,7 @@ $('#searchIcon').click(()=>{
                 let p = $('<p></p>');
                 let a = $('<a></a>');
                 img.attr('src',`${news[i].news_image}`);
-                a.attr('href',`http://localhost:3000/HTML/detail.html?id=${news[i].id}`);
+                a.attr('href',`/HTML/detail.html?id=${news[i].id}`);
                 h3.html(`${news[i].news_title}`);
                 p.html(`${news[i].news_content}`);
                 li.append(img);
@@ -69,7 +69,7 @@ function newsListInfo() {
             let a = $('<a></a>');
             span.html(headlineNews[i].news_title);
             p.html(headlineNews[i].news_content);
-            a.attr('href', `http://localhost:3000/HTML/detail.html?id=${headlineNews[i].id}`);
+            a.attr('href', `/HTML/detail.html?id=${headlineNews[i].id}`);
             a.append(span);
             a.append(p);
             let idArr = ['#top-news-firstText','#top-news-secondText','#top-news-thirdText'];
@@ -89,7 +89,7 @@ function displaynews(index) {
             let a = $('<a></a>');
             let span = $('<span></span>');
             img.attr('src',`${news[i].news_image}`);
-            a.attr('href',`http://localhost:3000/HTML/detail.html?id=${news[i].id}`);
+            a.attr('href',`/HTML/detail.html?id=${news[i].id}`);
             h3.html(`${news[i].news_title}`);
             p.html(`${news[i].news_content}`);
             span.html(`${news[i].news_time}`);
@@ -116,7 +116,7 @@ function displaySearch(news) {
         let a = $('<a></a>');
         let span = $('<span></span>');
         img.attr('src', `${news[i].news_image}`);
-        a.attr('href', `http://localhost:3000/HTML/detail.html?id=${news[i].id}`);
+        a.attr('href', `/HTML/detail.html?id=${news[i].id}`);
         h3.html(`${news[i].news_title}`);
         p.html(`${news[i].news_content}`);
         span.html(`${news[i].news_time}`);
