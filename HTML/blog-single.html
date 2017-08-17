@@ -19,9 +19,11 @@
 	<link href="../CSS/animate.min.css" rel="stylesheet">
 	<!-- Import Custom Responsive Styles -->
 	<link href="../CSS/responsive.css" rel="stylesheet">
-    <link href="../CSS/login.css" rel="stylesheet">
     <link href="../CSS/calendar.css" rel="stylesheet">
     <link href="../CSS/blog.css" rel="stylesheet">
+    <link rel="stylesheet" href="../library/jQueryPagination/css/jquery.pagination.css" />
+    <script src="../JS/jquery-3.2.1.min.js"></script>
+    <script src="../library/jQueryPagination/js/jquery.pagination.min.js"></script>
 </head>
 <body class="header-fixed-top">
     <!-- 点击Home返回的部分 -->
@@ -312,41 +314,14 @@
               <div class="col-sm-11">
                 <!-- 主要的博客列表-->
                 <div class="main-blog">
-                  <ul>
-                    <li>
-                      <img src="../Images/15-01.jpg">
-                      <h3>Headline</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
-                      <span>2017-08-11</span>
-                    </li>
-
-                    <li>
-                      <img src="../Images/20-01.jpg">
-                      <h3>Headline</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
-                    </li>
-
-                    <li>
-                      <img src="../Images/22-01.jpg">
-                      <h3>Headline</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
-                    </li>
-
-                    <li>
-                      <img src="../Images/24-01.jpg">
-                      <h3>Headline</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
-                    </li>
+                  <ul id="simplecontent">
                   </ul>
-                  <ul class="pagination">
-                    <li><a href="#">&laquo;</a ></li>
-                    <li class="active"><a href="#">1</a ></li>
-                    <li><a href="#">2</a ></li>
-                    <li><a href="#">3</a ></li>
-                    <li><a href="#">4</a ></li>
-                    <li><a href="#">5</a ></li>
-                    <li><a href="#">&raquo;</a ></li>
-                  </ul>
+                  <!--************************分页********************-->
+                  <div id="box" class="text-center">
+                    <div id="pagination">
+                    </div>
+                  </div>
+                  <!--************************分页********************-->
                   </div>
                 </div>
               </div>
@@ -405,12 +380,14 @@
     <!-- Include modernizr-2.8.3.min.js -->
     <script src="../JS/modernizr-2.8.3.min.js"></script>
     <!-- Include jquery.min.js plugin -->
-    <script src="../JS/jquery-2.1.0.min.js"></script>
+
     <!-- Javascript Plugins  -->
     <script src="../JS/plugins.js"></script>
     <!-- Custom Functions  -->
     <script src="../JS/functions.js"></script>
     <script src="../JS/wow.min.js"></script>
+    <script src="../JS/blog.js"></script>
+
     <script>
 
         $(document).ready(function() {
