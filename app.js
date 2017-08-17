@@ -427,6 +427,19 @@ app.get('/detail',function (req,res) {
     })
 });
 
+app.get('/detail_blog',function (req,res) {
+
+    const sqlStr = `select * from blogs where id = ${req.query.blogsid}`;
+
+    db.all(sqlStr, function (err, result) {
+        if(err){
+            console.log("读取数据失败！");
+        } else {
+            res.send(result);
+        }
+    })
+});
+
 //前台首页头条新闻
 app.get("/news_list", function (req, res) {
 
@@ -463,13 +476,13 @@ app.get('/all_news_count', function (req, res) {
 //获取博客的总条数（前后台共用）
 app.get('/all_blog_count', function (req, res) {
 
-    const sql_str = "select * from blog_count";
+    const sql_str = "select * from blogs_count";
 
     db.all(sql_str, function (err, result) {
         if (err) {
             console.log("读取数据失败！");
         } else {
-            console.log("博客数量为:" + result[0].all_blog_count);
+            console.log("博客数量为:" + result[0].all_blogs_count);
             res.send(result);
         }
     });

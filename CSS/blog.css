@@ -1204,3 +1204,14 @@ footer a {
     text-align: center;
 }
 /*contact us 【wrc】*/
+#pagination {
+    display: inline-block;
+}
+
+#simplecontent  div{
+   height: 60px;
+   line-height: 20px;
+    overflow: hidden;
+}
+
+

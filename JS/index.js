@@ -22,6 +22,7 @@ $(document).ready(function(){
                    nextPageText: "下一页",
                    callback: function(current) {
                        displaynews(current);
+                       $(window).scrollTop(600);
                    }
                });
            });
