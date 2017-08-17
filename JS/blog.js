@@ -9,7 +9,7 @@ $().ready(()=>{
         for(let i = 0;i < res.length;i ++){
             html_str+=`<li>
             <div class="recent-post-details">
-                <a class="post-title" href="#" id="post-title1">${res[i].blog_title}</a><br>
+                <a class="post-title" href="http://localhost:3000/HTML/detail_blogs.html?id=${res[i].id}" id="post-title1">${res[i].blog_title}</a><br>
                 <div class="post-meta">
                 <time>${res[i].blog_time}</time>
                 <span href="#">  Administrator</span>
@@ -41,6 +41,34 @@ $().ready(()=>{
                 }
             });
         });
+    });
+    $('#searchIcon').click(()=>{
+        $('#pagination').html('');
+        $('#simplecontent').html('');
+        $.get(`/search_blog?keywords=${$('#searchText').val()}`,(blogs)=>{
+            for(i=0;i<blogs.length;i++){
+                let li = $('<li></li>');
+                let h3 = $('<h3></h3>');
+                let div = $('<div></div>');
+                let a = $('<a></a>');
+                let span = $('<span></span>');
+                let img = blogs[i].blog_content.match(/<img[^>]+>/);
+                if(!img){
+                    img = "<img src='../Images/假装有图.jpg'>";
+                }
+                a.attr('href',`http://localhost:3000/HTML/detail_blogs.html?id=${blogs[i].id}`);
+                h3.html(`${blogs[i].blog_title}`);
+                div.html(`${blogs[i].blog_content}`);
+                span.html(`${blogs[i].blog_time}`);
+                li.append(img);
+                li.append(h3);
+                li.append(div);
+                li.append(span);
+                a.append(li);
+                $('#simplecontent').append(a);
+            }
+            $(window).scrollTop(600);
+        })
     });
 //************************邓雍**********************************
 });
