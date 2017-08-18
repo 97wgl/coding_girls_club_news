@@ -524,7 +524,7 @@ function resetPwdEmail(sendEmail) {
         <p>亲爱的${sendEmail}，您在${(new Date()).toString().substring(3,25)}提交了密码重置请求，请点击下面的链接重置密码;若此请求非您本人操作，请忽略此消息.</p>
           <div style="text-align: center; margin: 20px">   
          <span style="background-color: #4785af; color:#fff; border-radius: 5px; padding: 10px 16px;">
-         <a href="http://codingirls.vapors.pw/reset-password?${encry.encode(sendEmail)}&&email=${sendEmail}" style="color: #fff; text-decoration: none">
+         <a href="http://codingirls.vapors.pw:3000/reset-password?${encry.encode(sendEmail)}&&email=${sendEmail}" style="color: #fff; text-decoration: none">
             点此重置密码
          </a>
          </span>
