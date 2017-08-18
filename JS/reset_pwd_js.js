@@ -5,7 +5,6 @@ $("#reset_pw_btn").click(function () {
         user_email=encry.decode(location.href.slice(start+1, end)),
         user_pw = $('#user_pw').val(),
         user_cfm_pw = $('#user_cfm_pw').val();
-    alert(user_email);
     if(user_pw.length < 7){
         layer.alert('Your password is too short, please change a safety one.',{
             icon: 0,
