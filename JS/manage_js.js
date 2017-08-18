@@ -37,7 +37,7 @@ $(".modify-password").click(function () {
 $("#logout").click(function () {
     $.session.remove('admin_email');
     $.session.remove('admin_encry_pwd');
-    window.location.href="/login";
+    window.location.href="http://www.codingirls.club/";
 });
 
 
@@ -519,7 +519,15 @@ function createPagingBtn(type, name, total, current) {   //类型：新闻/博�
 
     $("#go").click(function () {       //为跳转按钮添加事件         !诡异问题：直接跳转到的页面这一页的按钮无法变灰（不能点击）
        let num=$("input[type=number]").val();
-        createListPage(type, name, total, num);
+        if(num>=1 && num<=pageNum){
+           createListPage(type, name, total, num);
+       }
+       else{
+           layer.alert('输入的页数不存在！',{
+               title: '警告',
+               icon: 0
+           });
+       }
     });
 
     let pages=$("#pages");

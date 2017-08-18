@@ -51,8 +51,8 @@
     border-radius: 10px;
     width: 60%;
 }
-#paper_content{
-
+#paper_content img{
+	width: 80%;
 }
 #paper_content p{
      font-size: 21px;
