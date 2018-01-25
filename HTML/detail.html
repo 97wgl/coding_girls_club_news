@@ -6,58 +6,131 @@
     <link rel="stylesheet" href="../CSS/detail.css">
     <link rel="stylesheet" href="../library/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../library/font-awesome-4.7.0/css/font-awesome.css">
-    <script src="../JS/jquery-3.2.1.min.js"></script>
-
 
 </head>
 <body>
-<!--**************************logo**********************************-->
-
-    <div class="container">
-        <div class="site-logo text-center" >
-           <img src="../Images/webwxgetmsgimg.jpg" >
-    </div><!-- /.container -->
+<!--**************************导航条**********************************-->
+<div class="navbar navbar-fixed-top">
+    <a class="nav-brand" href="./index.html">
+        <img alt="Brand" src="../Images/detail/logo.png">
+    </a>
+    <form class="nav-form nav-right" role="search">
+        <div class="search bar">
+            <form>
+                <input type="text" placeholder="Please search...">
+                    <button type="submit"></button>
+            </form>
+        </div>
+    </form>
+</div>
 
 <!--***************************阅读主体********************************-->
-    <div id="paper">
-        <div id="paper_title" class="text-center">
-            <h1>  </h1>
+<div id="paper" class="row">
+    <a href="http://localhost:3000/index">
+        <div id="home_icon" title="回到首页">
+            <img class="back_to_home" src="../Images/detail/home.png">
         </div>
-        <div id="paper_author" class="text-left">
-            <p></p>
+    </a>
+    <div class="container_left" >
+        <div id="paper_title">
+            <font id="text_title"></font>
         </div>
-        <div id="paper_imageandtext">
-
-                <div id="paper_content" class="text-justify">
-                    <div></div>
-                </div>
-        </div>
-        <hr>
-        <!--*****************************分享******************************-->
-        <div id="paper_share" class="text-center">
-            <div class="bdsharebuttonbox text-center " data-tag="share_1" >
-                <div id="chevron_left" title="上一篇">
-                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                </div>
-                <a class="bds_tsina" data-cmd="tsina" ></a>
-                <a class="bds_weixin" data-cmd="weixin" ></a>
-                <a class="bds_qzone" data-cmd="qzone" ></a>
-                <a class="bds_twi" data-cmd="twi" ></a>
+        <div id="paper_info">
+            <span class="label">Business</span>
+            <span class="author" id="paper_author"></span>
+            <img class="timer" src="../Images/detail/time.png">
+            <span class="time" id="time"></span>
+            <!--*****************************分享******************************-->
+            <div class="bdsharebuttonbox text-center float-right" data-tag="share_1" >
                 <a class="bds_fbook" data-cmd="fbook" ></a>
-                <div id="chevron_right" title="下一篇">
-                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                </div>
+                <a class="bds_twi" data-cmd="twi" ></a>
+                <a class="bds_weixin" data-cmd="weixin" ></a>
+                <a class="bds_tsina" data-cmd="tsina" ></a>
+                <a class="bds_qzone" data-cmd="qzone" ></a>
+            </div>
+            <!--***************************************************************-->
+        </div>
+        
+        <div id="paper_imageandtext">
+           <!-- <div class="paper_image" id="paper_image" ><img></div>-->
+            <div id="paper_content" class="text-justify">
+
             </div>
         </div>
-        <!--******************************************************************-->
-        <a href="/index">
-        <div id="home_icon" title="回到首页">
-            <i class="fa fa-home" aria-hidden="true"></i>
-        </div>
-        </a>
     </div>
+    <!--***************************右侧内容********************************-->
+    <div class="container_right">
+        <div class=split_line></div>
+        <!--***************************标签********************************-->
+        <div class="tag_panel">
+            <h4 clacc="h_color">TAGS</h4>
+            <hr>
+            <a href="#"><span class="tag--inverse">Business</span></a>
+            <a href="#"><span class="tag--inverse">Node.js</span></a>
+            <a href="#"><span class="tag--inverse">AngularJS</span></a>
+            <a href="#"><span class="tag--inverse">VueJS</span></a>
+            <a href="#"><span class="tag--inverse">Laravel</span></a>
+            <a href="#"><span class="tag--inverse">Bootstrap</span></a>
+            <a href="#"><span class="tag--inverse">Symfony</span></a>
+            <a href="#"><span class="tag--inverse">SVG</span></a>
+        </div>
+        <!--***************************read more********************************-->
+        <div class="news_list" >
+            <h4 clacc="h_color">READ MORE</h4>
+            <hr>
+            <div id="news_list"></div>
+
+
+        </div>
+    </div>
+</div>
 <!--******************************************************************-->
 
+<!--footer start-->
+<footer class="footer" id="footer">
+        <div class="container margin-btm-30">
+            <h3>Contact us</h3>
+            <ul class="list-inline footer-social">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-qq" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-weixin" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-weibo" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+            <p>If you have some questions:
+                <a href="#">info@codingirls.club</a>
+            </p>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <span>&copy; Coding Girls Club Copyright 2016 - 2017. All Right Reserved.</span>
+            </div>
+        </div>
+    </footer>
+    <!--footer end-->
+
 </body>
+ <script src="../JS/jquery-3.2.1.min.js"></script>
  <script src="../JS/detail.js"></script>
+
 </html>

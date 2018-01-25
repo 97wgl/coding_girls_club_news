@@ -129,6 +129,19 @@ app.get("/all_news", function (req, res) {
     });
 });
 
+app.get("/all_news3", function (req, res) {
+
+    const sql_str = "select * from news order by news_time desc limit 0,3";
+    db.all(sql_str, function (err, result) {
+        if (err) {
+            console.log("读取数据失败！" + err);
+        } else {
+            console.log(result);
+            res.send(result);
+        }
+    });
+});
+
 //后台分页展示信息blogs
 app.get("/all_blog", function (req, res) {
 

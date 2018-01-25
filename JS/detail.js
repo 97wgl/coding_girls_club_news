@@ -6,9 +6,10 @@ $().ready(()=>{
     let id = window.location.href.split('?')[1].split('=')[1];
     $.get(`/detail?newsid=${id}`,(newsInfo)=>{
          let news = newsInfo[0];
-         $('#paper_title').find("h1").html(news.news_title);
-         $('#paper_author').find('p').html(news.news_time);
-         $('#paper_content').find('div').html(news.news_content);
+         $('#text_title').html(news.news_title);
+         $('#paper_author').html('CodingGirlsClub');
+         $('#paper_content').html(news.news_content);
+         $('#time').html(news.news_time);
             window._bd_share_config = {
                 common : {
                     bdText :`${news.news_title}`,
@@ -25,16 +26,24 @@ $().ready(()=>{
 });
 
 $().ready(()=>{
-    $('#chevron_left').click(()=>{
-        window.open(`/HTML/detail.html?id=${window.location.href.split('?')[1].split('=')[1]-1}`)
-    });
-});
-
-$().ready(()=>{
-    $('#chevron_right').click(()=>{
-        window.open(`/HTML/detail.html?id=${parseInt(window.location.href.split('?')[1].split('=')[1])+1}`)
-    });
-});
+    "use strict";
+    $.get('/all_news3',(news)=>{
+        for(let i=0;i<3;i++){
+            let div1 = $('<div></div>');
+            let div2 = $('<div></div>');
+            let a = $('<a></a>');
+            let img = news[i].news_content.match(/<img[^>]+>/);
+            a.attr('href',`/HTML/detail.html?id=${news[i].id}`);
+            div1.attr('class','each_news');
+            div2.attr('class','news_list_title');
+            div2.html(`${news[i].news_title}`);
+            a.append(img);
+            a.append(div2);
+            div1.append(a);
+            $('#news_list').append(div1);
+        }
+    })
+})
 
 
 
